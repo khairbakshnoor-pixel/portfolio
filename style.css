@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #0f172a;
+  color: white;
+}
+
+header {
+  text-align: center;
+  padding: 40px;
+  background: #111827;
+}
+
+h1 {
+  color: #38bdf8;
+}
+
+h2 {
+  color: #38bdf8;
+  margin-top: 30px;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+  padding: 20px;
+}
+
+section {
+  margin-bottom: 30px;
+  padding: 20px;
+  background: #1e293b;
+  border-radius: 10px;
+}
+
+.skills span {
+  display: inline-block;
+  background: #38bdf8;
+  color: black;
+  padding: 5px 10px;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.card {
+  background: #334155;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+}
+
+.contact, .links {
+  font-size: 14px;
+  color: #cbd5e1;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #111827;
+  color: gray;
+}
