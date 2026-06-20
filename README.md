@@ -1,26 +1,82 @@
-# 🚀 Khair Bakhsh Noor Dad - AI/ML Portfolio
+Hi, I'm Khair Bakhsh Noor Dad 👋
+AI & Machine Learning Enthusiast | BS Computer Science Student
+🎓 BS Computer Science Student at SZABIST Karachi (CGPA: 3.66)
 
-Welcome to my personal portfolio website repository.  
-This project showcases my skills, education, projects, and experience in **Artificial Intelligence, Machine Learning, and Data Science**.
+🤖 Passionate about Artificial Intelligence, Machine Learning, Data Science, and Analytics.
 
----
+💡 I enjoy building machine learning models, analyzing data, and solving real-world problems through AI-driven solutions.
 
-## 👨‍💻 About Me
+🚀 About Me
+🎓 BSCS Student at SZABIST Karachi
+📊 Interested in Data Science & Machine Learning
+🐍 Strong foundation in Python and Data Analysis
+📈 Experience in Data Visualization and Statistical Analysis
+🌱 Currently learning Advanced Machine Learning and AI Applications
+🎯 Seeking AI/ML Internship Opportunities
+🛠️ Technical Skills
+Programming Languages
+Python
+SQL
+JAVA
+C
+C++
+HTML
+CSS
+JAVASCRIPT
+Machine Learning
+Linear Regression
+Logistic Regression
+K-Nearest Neighbors (KNN)
+Feature Engineering
+Model Evaluation
+Data Analysis
+Data Cleaning
+Exploratory Data Analysis (EDA)
+Statistical Analysis
+Data Visualization
+Libraries & Frameworks
+Pandas
+NumPy
+Matplotlib
+Seaborn
+Scikit-learn
+Tools
+Jupyter Notebook
+Google Colab
+VS Code
+Git & GitHub
+Microsoft Excel
+📂 Featured Projects
+🎓 Student Performance Prediction
+Machine learning project for predicting academic performance using student datasets.
 
-I am a **BS Computer Science student at SZABIST University Karachi** with a CGPA of **3.66**.
+Tech Stack: Python, Pandas, NumPy, Scikit-learn
 
-I am passionate about:
-- Artificial Intelligence 🤖
-- Machine Learning 📊
-- Data Science 📈
-- Python Development 🐍
+❤️ Heart Disease Prediction
+Classification model to predict heart disease risk using healthcare data.
 
-I enjoy solving real-world problems using data and building intelligent systems.
+Tech Stack: Python, Pandas, Scikit-learn
 
----
+🏠 Real Estate Price Analysis
+Housing market analysis and property price prediction using regression techniques.
 
-## 🌐 Live Portfolio
+Tech Stack: Python, Pandas, Matplotlib, Seaborn
 
-👉 (Add your GitHub Pages link here after deployment)
+📊 Sales Data Analysis Dashboard
+Business analytics dashboard for sales trend analysis and decision support.
 
-Example:
+Tech Stack: Python, Excel, Pandas
+
+💼 Experience
+Data Analyst Intern
+Hot and Spicy | May 2024 – August 2024
+
+Sales Data Analysis
+Dashboard Creation
+Data Cleaning & Validation
+Business Reporting
+🏆 Certifications
+Artificial Intelligence & Data Science (SMIT)
+Data Analysis with Python (SMIT)
+Python Programming (SMIT)
+Web Development (Bano Qabil
