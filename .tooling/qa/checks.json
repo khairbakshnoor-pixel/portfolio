@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "widths": [
+    1440,
+    1024,
+    768,
+    390,
+    320
+  ],
+  "pageErrors": [],
+  "failedResources": [],
+  "checks": [
+    "responsive overflow",
+    "filter categories",
+    "expand all",
+    "case study",
+    "dialog focus/escape/restoration",
+    "theme persistence",
+    "mobile menu",
+    "form validation",
+    "encoded mailto draft",
+    "metadata",
+    "no phone link"
+  ]
+}
