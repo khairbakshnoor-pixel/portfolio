@@ -1,0 +1,373 @@
+export type Category = "AI Automation" | "Voice Agents" | "Data & ML";
+export type Project = {
+  id: string;
+  title: string;
+  subtitle: string;
+  category: Category[];
+  type: string;
+  visual: "voice" | "workflow" | "chart" | "knowledge" | "chat" | "vision";
+  accent: "violet" | "cyan";
+  description: string;
+  problem: string;
+  built: string[];
+  result: string;
+  stack: string[];
+  metric?: { value: string; label: string };
+  repo?: string;
+  demo?: string;
+  featured?: boolean;
+};
+export type Repository = { name: string; description: string; language: string; url: string; pinned?: boolean; demo?: string };
+const github = "https://github.com/khairbakshnoor-pixel";
+
+// All portfolio copy and editable links live here. Missing URLs are omitted from the UI.
+// Source of career/project claims: supplied portfolio brief, dated 20 October 2026.
+// GitHub repository metadata and READMEs reviewed 20 October 2026.
+// TODO: Replace public/cv.pdf with your approved CV; then set cv.available to true.
+// TODO: Add approved public URLs for client work only after client permission.
+// TODO: Add dedicated repo URLs for heart disease and real estate when verified.
+// TODO: Revisit semester, current role, and availability when your circumstances change.
+export const portfolio = {
+  name: "Khair Bakhsh",
+  fullName: "Khair Bakhsh Noor Dad",
+  initials: "KB",
+  title: "AI Automation Engineer | Data & Machine Learning",
+  email: "khairbakshnoor@gmail.com",
+  github,
+  linkedin: "https://linkedin.com/in/khair-bakhsh-54714b339",
+  location: "Karachi, Pakistan",
+  photo: "/images/khair.jpg",
+  photoAlt: "Khair Bakhsh Noor Dad",
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://khair-bakhsh-portfolio.red-vole-8389.chatgpt.site",
+  description: "I build AI voice agents, connected workflows, and knowledge-grounded chatbots. Explore my automation, data analytics, and machine learning work.",
+  nav: [{ label: "About", id: "about" }, { label: "Experience", id: "experience" }, { label: "Work", id: "work" }, { label: "Skills", id: "skills" }],
+  availability: "Open to meaningful collaborations",
+  hero: {
+    eyebrow: "AI AUTOMATION · DATA · MACHINE LEARNING",
+    introduction: "Hello, I’m",
+    line1: "Human ideas.",
+    line2: "Intelligent systems.",
+    roles: ["AI Automation Engineer", "Voice Agent Builder", "Data & ML"],
+    description: "I turn everyday bottlenecks into connected AI workflows. From the first customer call to the next business decision.",
+    primary: "Explore my work",
+    secondary: "Let’s talk",
+    scroll: "SCROLL TO EXPLORE",
+    portraitLabel: "BASED IN KARACHI · BUILDING GLOBALLY",
+    portraitTitle: "A human behind the automation.",
+    specialties: ["Voice agents", "Connected workflows", "Knowledge-grounded AI"],
+  },
+  stats: [{ value: 3, suffix: "", label: "roles across AI & data" }, { value: 10, suffix: "+", label: "automation builds & experiments" }, { value: 6, suffix: "", label: "ML models benchmarked" }],
+  about: {
+    eyebrow: "01 / A LITTLE ABOUT ME",
+    title: "Curious by nature.",
+    accent: "Practical by design.",
+    paragraphs: [
+      "I’m an AI Automation Engineer and Computer Science student who likes making complicated things work simply.",
+      "At AI Call, I build voice agents, n8n workflows, CRM automations, and RAG chatbots for real clients. My work connects conversations to action: qualify a lead, book an appointment, or get the right information to the right person.",
+      "My foundation is in data and machine learning. I bring that same discipline to automation: understand the problem, build carefully, test with real scenarios, and keep improving.",
+    ],
+    note: "Currently building with a remote, US-facing team.",
+    focus: [{ title: "Conversations that help", text: "Voice and chat agents with a clear purpose, natural tone, and thoughtful handoffs." }, { title: "Tools that work together", text: "Connected forms, CRMs, and workflows that keep information moving." }, { title: "Decisions grounded in data", text: "Clean data, evaluated models, and dashboards that make the next step clearer." }],
+  },
+  experience: {
+    eyebrow: "02 / THE JOURNEY",
+    title: "Learning deeply.",
+    accent: "Building for the real world.",
+    entries: [
+      { role: "AI Automation Engineer", company: "AI Call", date: "Jul 2026 — Present", mode: "Full-time · Remote", current: true, description: "I connect voice, knowledge, and business operations.", points: ["Build Retell AI voice agents for speed-to-lead, reception, and call routing.", "Connect CRMs, forms, messaging, and AI models with end-to-end n8n workflows.", "Develop RAG chatbots with Supabase pgvector and Ollama embeddings, and refine production prompts in English and Roman Urdu."], tags: ["Retell AI", "n8n", "GoHighLevel", "RAG"] },
+      { role: "Data Analyst", company: "Hot-N-Spicy", date: "Mar 2026 — Jun 2026", mode: "Full-time · Karachi", current: false, description: "I turned transaction data into useful operational insights.", points: ["Cleaned and structured 1,000+ raw transaction records with Pandas.", "Analyzed sales trends, peak ordering hours, and top-selling menu items.", "Built Python and Excel reports tracking 5+ KPIs, reducing manual reporting effort by an estimated 40%."], tags: ["Python", "Pandas", "Excel", "Analytics"] },
+      { role: "AI/ML Intern", company: "Alkhidmat Foundation", date: "Nov 2025 — Feb 2026", mode: "Internship · Clifton, Karachi", current: false, description: "I built my foundation through impact-driven problems.", points: ["Cleaned and prepared real-world data with Python, Pandas, and NumPy.", "Built and evaluated machine learning models with scikit-learn.", "Visualized findings and explained results to non-technical stakeholders."], tags: ["scikit-learn", "NumPy", "Data visualization"] },
+    ],
+  },
+  work: {
+    eyebrow: "03 / SELECTED WORK",
+    title: "Less busywork.",
+    accent: "More possibility.",
+    description: "A selection of systems I’ve built, workflows I’ve connected, and questions I’ve explored with data.",
+    filters: ["All", "AI Automation", "Voice Agents", "Data & ML"] as const,
+    allLabel: "Explore all projects",
+    fewerLabel: "Show selected work",
+    caseLabel: "Explore case study",
+    resultLabel: "THE OUTCOME",
+    problemLabel: "THE CHALLENGE",
+    builtLabel: "WHAT I BUILT",
+    stackLabel: "BUILT WITH",
+    repoLabel: "View source",
+    demoLabel: "Visit project",
+    closeLabel: "Close case study",
+    noResults: "No projects in this category yet.",
+  },
+  skills: {
+    eyebrow: "04 / MY TOOLKIT",
+    title: "The right tools.",
+    accent: "Connected thoughtfully.",
+    description: "From the first API call to the final model evaluation.",
+    groups: [
+      { title: "AI & automation", subtitle: "Where conversations become workflows.", icon: "network", items: ["n8n", "Retell AI", "GoHighLevel", "HubSpot", "RAG pipelines", "Supabase pgvector", "Ollama", "Prompt engineering", "Claude API", "Webhooks & REST APIs", "Apify", "SerpApi"] },
+      { title: "Data & machine learning", subtitle: "From raw records to useful signals.", icon: "chart", items: ["Python", "Pandas", "NumPy", "scikit-learn", "TensorFlow", "Keras", "Streamlit", "Plotly", "Matplotlib", "Seaborn", "EDA", "Feature engineering", "Model evaluation"] },
+      { title: "Languages", subtitle: "A strong foundation to build on.", icon: "code", items: ["Python", "SQL", "JavaScript", "Java", "C", "C++", "HTML", "CSS"] },
+      { title: "Everyday tools", subtitle: "Build. Collaborate. Ship. Improve.", icon: "tools", items: ["Git", "GitHub", "VS Code", "Jupyter", "Google Colab", "Vercel", "Excel", "Trello"] },
+    ],
+  },
+  education: {
+    eyebrow: "05 / ALWAYS A STUDENT",
+    title: "A foundation for",
+    accent: "what comes next.",
+    institution: "SZABIST University",
+    degree: "BS Computer Science",
+    detail: "Karachi · Currently in 6th semester",
+    score: "3.66",
+    scoreLabel: "CGPA",
+    certifications: [
+      { title: "AI & Data Science", issuer: "Saylani Mass IT Training", duration: "8-month program" },
+      { title: "Data Analysis with Python", issuer: "Saylani Mass IT Training", duration: "Training" },
+      { title: "Python Programming", issuer: "Saylani Mass IT Training", duration: "Training" },
+      { title: "Web Development", issuer: "Bano Qabil", duration: "3-month program" },
+    ],
+  },
+  githubSection: {
+    eyebrow: "06 / BUILDING IN THE OPEN",
+    title: "More code.",
+    accent: "More curiosity.",
+    description: "Selected public repositories, from applied AI to the fundamentals. Repository details reviewed in October 2026.",
+    linkLabel: "Explore my GitHub",
+    moreLabel: "More on GitHub",
+    archiveLabel: "Browse the full repository collection",
+    sourceLabel: "View source",
+    demoLabel: "Live demo",
+  },
+  lab: {
+    eyebrow: "THE LAB / SMALL EXPERIMENTS, NEW POSSIBILITIES",
+    items: [{ title: "Translate → summarize", description: "A multilingual n8n workflow that turns source content into a concise summary.", stack: "n8n · LLM prompting" }, { title: "Prompt → website", description: "An experimental agent workflow that generates a website and returns a live link.", stack: "AI agents · Workflow automation" }],
+  },
+  contact: {
+    eyebrow: "07 / LET’S BUILD SOMETHING",
+    title: "Have a challenge",
+    accent: "worth solving?",
+    description: "A workflow that needs connecting. A voice agent that needs a human touch. An idea you’re ready to explore. I’d love to hear about it.",
+    formTitle: "Tell me what you have in mind.",
+    nameLabel: "Your name",
+    namePlaceholder: "How should I call you?",
+    emailLabel: "Email address",
+    emailPlaceholder: "you@company.com",
+    messageLabel: "What are you working on?",
+    messagePlaceholder: "A little about your idea, project, or opportunity…",
+    submit: "Start a conversation",
+    note: "Opens a draft in your email app. Nothing is sent automatically.",
+    status: "Your email draft is ready. If your email app didn’t open, copy my address and send your message directly.",
+    copy: "Copy email address",
+    copied: "Email copied",
+    copyFailed: "Please copy the email address shown above.",
+    emailSubject: "Portfolio inquiry from",
+    socialLabels: { linkedin: "LinkedIn", github: "GitHub" },
+  },
+  cv: { href: "/cv.pdf", available: false, label: "Download CV", unavailableLabel: "Request my CV", subject: "CV request — Khair Bakhsh Noor Dad" },
+  footer: { note: "Thoughtfully built. Always evolving.", back: "Back to top", copyright: "2026" },
+  ui: { skip: "Skip to content", menuOpen: "Open navigation", menuClose: "Close navigation", light: "Switch to light theme", dark: "Switch to dark theme", current: "CURRENT", local: "KARACHI, PK", caseStudy: "Case study", close: "Close", projectCount: "projects", navigation: "Main navigation", filter: "Filter projects", notFoundLabel: "404 / PAGE NOT FOUND", notFoundTitle: "Let’s get you back on track.", homeLink: "Back to the portfolio" },
+};
+
+export const projects: Project[] = [
+  {
+    id: "speed-to-lead", title: "A first response that feels human.", subtitle: "Speed-to-lead voice agent", category: ["AI Automation", "Voice Agents"], type: "CLIENT WORK · AI CALL", visual: "voice", accent: "violet", featured: true,
+    description: "An outbound voice agent that turns a wellness inquiry into a qualified conversation.",
+    problem: "A wellness clinic network needed a consistent way to respond to new inquiries, qualify interest, and route people to the right next step.",
+    built: ["I built a Retell AI agent with ElevenLabs HD voice, Twilio telephony, a three-minute call cap, recordings, transcripts, and three retry attempts.", "I connected website forms through n8n and personalized greetings with CRM variables.", "The knowledge base covers services, eight locations, and FAQs. Function calls handle booking and Slack handoffs. Guardrails exclude medical advice, pricing, and promises of results.", "I tested the conversation with mock calls and also built a separate inbound agent."],
+    result: "A tested voice workflow for qualification, booking, or a 24-hour human handoff, with reported latency below 800 ms. The project does not claim a measured conversion uplift.",
+    stack: ["Retell AI", "ElevenLabs", "Twilio", "n8n", "GoHighLevel", "Slack", "Webflow"],
+    metric: { value: "<800 ms", label: "reported voice latency" },
+  },
+  {
+    id: "onboarding", title: "One conversation. A connected business.", subtitle: "AI client onboarding", category: ["AI Automation", "Voice Agents"], type: "CLIENT WORK · AI CALL", visual: "workflow", accent: "cyan", featured: true,
+    description: "Chat and voice onboarding connected to the tools a team already uses.",
+    problem: "Client onboarding meant collecting the same information across disconnected conversations and business tools.",
+    built: ["I built a custom Vercel website with Claude-powered chat and Retell AI voice agents collecting 13 business fields.", "I split chat and voice into dedicated n8n branches, then connected the CRM API, Google Sheets, Gmail, Discord, and Trello.", "Call transcripts and summaries become a client knowledge file in Google Drive. I migrated the CRM integration from HubSpot to the company API."],
+    result: "A connected onboarding flow from the initial conversation to structured client records, a welcome email, team notifications, and a Trello card.",
+    stack: ["Retell AI", "Claude API", "n8n", "CRM API", "Google Workspace", "Vercel"],
+    metric: { value: "13", label: "business fields collected" },
+    repo: `${github}/Client-Onboarding-Website`,
+    // TODO: Confirm the client-facing demo is approved for portfolio linking.
+  },
+  {
+    id: "churn", title: "Finding the signal before customers leave.", subtitle: "Customer churn ML dashboard", category: ["Data & ML"], type: "MACHINE LEARNING · LIVE APP", visual: "chart", accent: "violet", featured: true,
+    description: "Six models. One interactive view of the patterns behind customer churn.",
+    problem: "Understanding churn requires more than a prediction: it needs a clear view of customer behavior and a fair comparison of candidate models.",
+    built: ["I built an end-to-end Streamlit app using the Telco Customer dataset with 7,043 records and 20 features.", "I compared Logistic Regression, Decision Tree, Random Forest, KNN, SVM, and Gradient Boosting using a preprocessing pipeline, one-hot encoding, StandardScaler, and a stratified split.", "Plotly visualizations explore churn drivers. The app includes a model leaderboard and single-customer predictions with model confidence scores."],
+    result: "Gradient Boosting achieved 80.6% accuracy and 0.84 ROC-AUC in the evaluation reported in my project brief. The deployed app makes the analysis and model comparison interactive.",
+    stack: ["Python", "scikit-learn", "Pandas", "Plotly", "Streamlit"],
+    metric: { value: "0.84", label: "reported ROC-AUC" },
+    repo: `${github}/Customer-churn-dashboard-`,
+    // TODO: Restore the Streamlit demo after it loads instead of showing a status/login page.
+  },
+  {
+    id: "rag", title: "Answers rooted in your knowledge.", subtitle: "Company knowledge RAG agent", category: ["AI Automation"], type: "AI ENGINEERING · KNOWLEDGE SYSTEM", visual: "knowledge", accent: "cyan", featured: true,
+    description: "A retrieval pipeline that connects company knowledge to an n8n agent.",
+    problem: "Useful business assistants need relevant company context, while keeping the embedding workflow affordable and inspectable.",
+    built: ["I ran Ollama nomic-embed-text embeddings in Google Colab behind a Cloudflare Tunnel.", "I stored 768-dimensional vectors in Supabase pgvector and connected retrieval to an n8n Cloud agent.", "I created a question bank to test responses against the company knowledge."],
+    result: "A working knowledge-retrieval architecture without a paid embedding API. Colab and tunnel availability remain operational dependencies.",
+    stack: ["Ollama", "Supabase pgvector", "n8n", "Google Colab", "Cloudflare Tunnel"],
+    metric: { value: "768", label: "embedding dimensions" },
+  },
+  {
+    id: "urdu", title: "Local language. Natural conversations.", subtitle: "Roman Urdu catering assistant", category: ["AI Automation", "Voice Agents"], type: "CLIENT WORK · AI CALL", visual: "chat", accent: "violet", featured: true,
+    description: "A context-aware catering assistant that remembers what the customer already shared.",
+    problem: "A Karachi catering business needed a conversational assistant that speaks naturally in Roman Urdu without repeatedly asking for booking details.",
+    built: ["I designed short, natural Roman Urdu replies grounded in the client’s knowledge base.", "The bot uses existing form context for name, date, guests, venue, and contact information; it asks only for missing dietary needs and budget.", "I added rules against invented prices and repeated questions, then built a Retell AI voice version."],
+    result: "A chat and voice experience shaped around the client’s booking process and the language their customers use.",
+    stack: ["Prompt engineering", "Knowledge base", "Retell AI"],
+  },
+  {
+    id: "attendance", title: "From recognition to a recorded arrival.", subtitle: "Face recognition attendance", category: ["Data & ML"], type: "COMPUTER VISION · DEMONSTRATION", visual: "vision", accent: "cyan", featured: true,
+    description: "A local-camera attendance demo with face matching, a head-turn challenge, and analytics.",
+    problem: "An attendance demonstration needed to connect face recognition with enrollment, sign-in, and useful reporting.",
+    built: ["I built a Python workflow with YuNet face detection, SFace embeddings, and cosine-similarity matching.", "The local demo includes multi-sample enrollment, a head-turn challenge, administrator access, and SQLite attendance records.", "A Streamlit dashboard supports analytics and CSV exports; a separate frontend provides a visual showcase."],
+    result: "A working educational demonstration for one trusted computer and its local webcam. The public showcase uses fictional data and is separate from the Python application.",
+    stack: ["Python", "OpenCV", "Streamlit", "SQLite"],
+    repo: `${github}/Attendance-Machine`, demo: "https://facedetectore.vercel.app",
+  },
+  {
+    id: "website-chat", title: "Turning website questions into next steps.", subtitle: "Engineering firm chat agent", category: ["AI Automation"], type: "CLIENT WORK · AI CALL", visual: "chat", accent: "cyan",
+    description: "A lead-capture chat widget with useful summaries for the team.",
+    problem: "An engineering and construction firm wanted website inquiries to reach its team with useful context.",
+    built: ["I built a Retell chat widget with a Claude backend and a concise system prompt.", "The conversation captures lead details early, while n8n sends a summary and transcript through Gmail.", "I deployed the client-approved widget to Vercel and wrote a WordPress/Vercel deployment guide."],
+    result: "A deployed, client-approved chat flow and a practical handoff to the team.",
+    stack: ["Retell AI", "Claude", "n8n", "Gmail", "Vercel"],
+    // TODO: Client-identifying repository links intentionally withheld pending approval.
+  },
+  {
+    id: "ghl-audit", title: "Giving every lead a clear path.", subtitle: "GoHighLevel automation audit", category: ["AI Automation"], type: "CLIENT WORK · ARCHITECTURE AUDIT", visual: "workflow", accent: "violet",
+    description: "An automation plan for two event and catering businesses.",
+    problem: "Manual follow-up slowed a pipeline with 1,200+ leads and a reported conversion baseline of 2.65%.",
+    built: ["I audited the GoHighLevel account and designed a pipeline around an eight-step sales flow.", "I proposed AI qualification, WhatsApp automation and a catalog, review requests, and follow-ups timed to each event date.", "I designed dynamic spacing with GoHighLevel If/Else and Wait Until conditions."],
+    result: "A proposed automation architecture targeting 10% conversion. This was a target, not a measured achieved result.",
+    stack: ["GoHighLevel", "WhatsApp API", "n8n"],
+  },
+  {
+    id: "receptionist", title: "The right person, one call away.", subtitle: "Skilled nursing voice receptionist", category: ["Voice Agents"], type: "VOICE AI · DEMO", visual: "voice", accent: "cyan",
+    description: "A call-routing demo with structured transfers and knowledge-based reference content.",
+    problem: "A receptionist demo needed to route callers across admissions, nursing stations, rooms, extensions, and departments.",
+    built: ["I designed multiple transfer functions for different caller needs.", "I shortened a long prompt and moved reference information into a knowledge base to reduce unsupported responses."],
+    result: "A structured voice-routing demonstration with clearer tool boundaries and reference content.",
+    stack: ["Voice AI", "GPT-4.1 mini", "Knowledge base", "Function calling"],
+  },
+  {
+    id: "crm", title: "From new lead to next action.", subtitle: "CRM & lead pipeline automation", category: ["AI Automation"], type: "AUTOMATION · CRM", visual: "workflow", accent: "violet",
+    description: "Connected contact records, deal stages, and follow-ups.",
+    problem: "Forms and calls needed to enter a consistent sales process instead of becoming isolated records.",
+    built: ["I created Contacts and Deals stages: New Lead, Contacted, Qualified, Proposal Sent, and Closed Won.", "I added a Lead Source property and n8n automations from form or call to CRM to follow-up."],
+    result: "An explicit lead lifecycle with automated handoffs between inbound channels and the CRM.",
+    stack: ["HubSpot", "n8n", "REST APIs"],
+  },
+  {
+    id: "research-agent", title: "From scattered signals to a useful draft.", subtitle: "AI news research agent", category: ["AI Automation"], type: "AUTOMATION · RESEARCH", visual: "knowledge", accent: "cyan",
+    description: "A multi-source research workflow that keeps a human in the publishing loop.",
+    problem: "Researching timely AI topics for a US small-business audience meant gathering information from many sources.",
+    built: ["I connected blogs, RSS, YouTube Data API, Google Trends via SerpApi, and social sources via Apify.", "An AI agent analyzes cross-source patterns and drafts a LinkedIn hook, body, and call to action.", "Drafts are saved for review with a detailed Google Sheets research log."],
+    result: "A repeatable research-to-draft workflow with human review before publication.",
+    stack: ["n8n", "Apify", "SerpApi", "YouTube Data API", "Google Sheets"],
+  },
+  {
+    id: "heart", title: "Exploring patterns in clinical data.", subtitle: "Heart disease prediction", category: ["Data & ML"], type: "MACHINE LEARNING · STUDY", visual: "chart", accent: "violet",
+    description: "A comparison of Logistic Regression and KNN on a clinical dataset.",
+    problem: "I wanted to understand how simple classifiers perform on structured health data.",
+    built: ["I prepared a 303-record dataset and evaluated Logistic Regression and KNN.", "I explored predictive features and identified the top five in the analysis."],
+    result: "Approximately 85% accuracy reported in my project brief. This is an educational model, not a clinical decision tool.",
+    stack: ["Python", "Pandas", "scikit-learn"],
+  },
+  {
+    id: "real-estate", title: "Making property data easier to read.", subtitle: "Real estate price prediction", category: ["Data & ML"], type: "MACHINE LEARNING · STUDY", visual: "chart", accent: "cyan",
+    description: "A regression workflow from messy housing records to an evaluated model.",
+    problem: "A housing dataset needed cleaning and consistent features before price modeling.",
+    built: ["I cleaned 500+ records, handling missing values, outliers, and categorical encoding.", "I used Linear Regression and evaluated the fit on the prepared dataset."],
+    result: "A reported R² of 0.82 in my project brief, alongside a reusable data-preparation workflow.",
+    stack: ["Python", "Pandas", "Matplotlib", "Seaborn", "scikit-learn"],
+  },
+  {
+    id: "eda", title: "Different datasets. Better questions.", subtitle: "Multi-domain EDA portfolio", category: ["Data & ML"], type: "DATA ANALYSIS · NOTEBOOKS", visual: "chart", accent: "violet",
+    description: "Exploratory analysis across student performance, lending, sales, health, and real estate.",
+    problem: "Each domain brings different data-quality issues and questions worth exploring.",
+    built: ["I cleaned and explored datasets with Pandas and NumPy.", "I visualized distributions, relationships, and patterns using Matplotlib and Seaborn.", "Related public notebooks cover student performance, bank loan approval, and score prediction."],
+    result: "A collection of practical analysis and modeling exercises across multiple domains.",
+    stack: ["Python", "Pandas", "NumPy", "Matplotlib", "Seaborn", "Jupyter"],
+    repo: `${github}/MACHINE-LEARNING-PROJECTS`,
+  },
+  {
+    id: "crypto", title: "A clearer view of a moving market.", subtitle: "Crypto analytics platform", category: ["Data & ML"], type: "DATA ENGINEERING · PUBLIC PROJECT", visual: "chart", accent: "cyan",
+    description: "A Streamlit dashboard backed by CoinGecko data and a SQLite snapshot.",
+    problem: "Market data needed a repeatable path from API responses to a structured, explorable dashboard.",
+    built: ["I connected a CoinGecko data pipeline to SQLite and a Streamlit dashboard.", "I added analysis of stored market records and explicit handling for update failures."],
+    result: "A public analytics app that can keep displaying stored data when the source API is unavailable. It stores a current snapshot, not a price-history time series.",
+    stack: ["Python", "Streamlit", "SQLite", "CoinGecko API"],
+    repo: `${github}/Real-Time-Crypto-Analytics-Platform`,
+    demo: "https://real-time-crypto-analytics-platform-axuqpnotjnurzdnuyfvexv.streamlit.app/",
+  },
+  {
+    id: "insurance", title: "AI assistance. Human judgment.", subtitle: "Insurance claim co-pilot", category: ["Data & ML"], type: "APPLIED AI · HACKATHON DEMO", visual: "vision", accent: "violet",
+    description: "An explainable claim-review demo with a required human approval step.",
+    problem: "Claims reviewers need to understand an AI recommendation before acting on it.",
+    built: ["I combined image, tabular, and text evidence in a Streamlit demonstration.", "The project includes model explanations, human approve/reject/modify actions, and downloadable reports."],
+    result: "A hackathon demonstration of assisted claim review. The self-contained Co-Pilot variant uses synthetic demo data; it is not presented as a validated insurance decision system.",
+    stack: ["Python", "TensorFlow", "Keras", "Streamlit", "SHAP", "ReportLab"],
+    repo: `${github}/-AI-Insurance-Claim-Co-Pilot`,
+  },
+];
+
+export const repositories: Repository[] = [
+  { name: "Customer churn dashboard", description: "Model comparison, interactive EDA, and individual churn predictions.", language: "Python", url: `${github}/Customer-churn-dashboard-`, pinned: true },
+  { name: "AI client onboarding", description: "A website foundation for conversational client onboarding.", language: "HTML · JavaScript", url: `${github}/Client-Onboarding-Website`, pinned: true },
+  { name: "Face recognition attendance", description: "Local face matching, attendance records, and a separate visual showcase.", language: "Python", url: `${github}/Attendance-Machine`, pinned: true, demo: "https://facedetectore.vercel.app" },
+  { name: "Crypto analytics platform", description: "API ingestion, SQLite storage, and a Streamlit analytics dashboard.", language: "Python", url: `${github}/Real-Time-Crypto-Analytics-Platform`, pinned: true, demo: "https://real-time-crypto-analytics-platform-axuqpnotjnurzdnuyfvexv.streamlit.app/" },
+  { name: "Insurance claim co-pilot", description: "A multimodal hackathon demo with explainability and human review.", language: "Python", url: `${github}/-AI-Insurance-Claim-Co-Pilot`, pinned: true },
+  { name: "Machine learning projects", description: "Notebooks for student performance, lending, and score prediction.", language: "Jupyter Notebook", url: `${github}/MACHINE-LEARNING-PROJECTS`, pinned: true },
+  { name: "FoodExpress", description: "A frontend food-ordering demonstration with cart interactions.", language: "HTML · CSS · JavaScript", url: `${github}/Bano-Qabil-Final-paper-project`, demo: "https://khairbakshnoor-pixel.github.io/Bano-Qabil-Final-paper-project/" },
+  { name: "CareerTrack", description: "A full-stack career workspace for profiles, applications, and interview preparation.", language: "TypeScript", url: `${github}/careertrack`, demo: "https://careertrack-psi.vercel.app" },
+  { name: "Sign Studio", description: "A browser-based hand-gesture recognition and guided-practice project.", language: "JavaScript", url: `${github}/Face-Hand-Gesture-Analyzer`, demo: "https://sign-studio-alpha.vercel.app" },
+  { name: "AI data analysis challenge", description: "CSV summaries, deterministic question answering, and chart generation.", language: "Python", url: `${github}/SMIT-HACKHATHON` },
+  { name: "Bank management system", description: "Java OOP practice through accounts, deposits, and transactions.", language: "Java", url: `${github}/hackhathon-BANK-management-system` },
+  { name: "Student result management", description: "A C application with record search, updates, and file storage.", language: "C", url: `${github}/Student-Result-Management` },
+  { name: "AI Innovation Hackathon Co-Pilot", description: "An additional claim-review demo with a human review workflow.", language: "Python", url: `${github}/AI-Innovation-Hackathon-Co-Pilot` },
+  { name: "Insurance detector", description: "An insurance assessment project with image, text, and structured inputs.", language: "Python", url: `${github}/insurance-detctor` },
+  { name: "Deep learning", description: "A collection of deep learning notebooks.", language: "Jupyter Notebook", url: `${github}/Deep-Learning` },
+  { name: "Learning ML at SMIT", description: "Machine learning practice and training exercises.", language: "Jupyter Notebook", url: `${github}/LEARNING-ML-by-SMIT` },
+  { name: "Machine learning", description: "Preprocessing, evaluation, and model-building exercises.", language: "Jupyter Notebook · Python", url: `${github}/Machine-Learning` },
+  { name: "Python data libraries", description: "NumPy, Pandas, Matplotlib, and Seaborn practice.", language: "Jupyter Notebook", url: `${github}/PYTHON-Libraries-Numpy-Pandas-matplotlib-seaborn-` },
+  { name: "Java OOP", description: "Object-oriented programming concepts and exercises in Java.", language: "Java", url: `${github}/JAVA-OOP` },
+  { name: "Data structures & algorithms", description: "Java data structure and algorithm exercises.", language: "Java", url: `${github}/DSA-` },
+  { name: "Assembly language", description: "Assembly language coursework and practice.", language: "Assembly", url: `${github}/Assembly-Language` },
+  { name: "Python projects", description: "Small applications for problem-solving and core Python concepts.", language: "Python", url: `${github}/python-projects-` },
+  { name: "Python practice", description: "Fundamentals, functions, data structures, and notebooks.", language: "Jupyter Notebook · Python", url: `${github}/python-practice` },
+  { name: "C language practice", description: "Fundamentals, arrays, pointers, and file handling.", language: "C", url: `${github}/C-Language-Practice` },
+  { name: "Passer vs Eater", description: "A two-player C board game using DFS and recursion.", language: "C", url: `${github}/passer-vs-eater-board-game` },
+  { name: "Python OOP concepts", description: "Exercises covering classes, inheritance, and encapsulation.", language: "Jupyter Notebook", url: `${github}/python-oop-concepts` },
+  { name: "Python patterns", description: "Loop and pattern-building practice.", language: "Jupyter Notebook", url: `${github}/python-patterns` },
+  { name: "Python collections", description: "List, tuple, and dictionary fundamentals.", language: "Jupyter Notebook", url: `${github}/python_list-tuples-and-dictionaries` },
+  { name: "Guessing game", description: "A Python guessing game using the random module.", language: "Python", url: `${github}/GUESSING_GAME` },
+  { name: "My first website", description: "Early HTML, CSS, and JavaScript work.", language: "HTML · CSS · JavaScript", url: `${github}/MY-WEBSITE` },
+  { name: "Original portfolio", description: "The earlier static portfolio and learning journey.", language: "HTML · CSS · JavaScript", url: `${github}/portfolio` },
+  { name: "First project", description: "My first public repository.", language: "Python", url: `${github}/first-prjoect` },
+  { name: "GitHub profile", description: "My public profile and programming journey.", language: "Markdown", url: `${github}/khairbakshnoor-pixel` },
+];
+
+// Full public repository inventory. Client-identifying repository names are deliberately
+// kept in this source-only inventory rather than rendered on the public site.
+export const githubInventory = [
+  "Assembly-Language", "DSA-", "YTH-Chat-and-voice-agent", "Gregs-Chat-Bot",
+  "careertrack", "Attendance-Machine", "Face-Hand-Gesture-Analyzer",
+  "Real-Time-Crypto-Analytics-Platform", "-AI-Insurance-Claim-Co-Pilot",
+  "Client-Onboarding-Website", "Gregs-ChatBot-1", "AI-Innovation-Hackathon-Co-Pilot",
+  "Deep-Learning", "insurance-detctor", "SMIT-HACKHATHON", "khairbakshnoor-pixel",
+  "JAVA-OOP", "LEARNING-ML-by-SMIT", "portfolio", "Customer-churn-dashboard-",
+  "hackhathon-BANK-management-system", "PYTHON-Libraries-Numpy-Pandas-matplotlib-seaborn-",
+  "Machine-Learning", "MACHINE-LEARNING-PROJECTS", "Bano-Qabil-Final-paper-project",
+  "python-projects-", "python-practice", "MY-WEBSITE", "GUESSING_GAME",
+  "C-Language-Practice", "Student-Result-Management", "passer-vs-eater-board-game",
+  "python-oop-concepts", "python-patterns", "python_list-tuples-and-dictionaries", "first-prjoect",
+];
+
+export const visualCopy = {
+  voice: { label: "VOICE INTELLIGENCE", status: "CONVERSATION FLOW", line: "Listen. Understand. Take action.", nodes: ["New inquiry", "Qualify", "Connect"] },
+  workflow: { label: "CONNECTED OPERATIONS", source: "A conversation", center: "n8n", destinations: ["CRM", "Welcome email", "Team handoff"], note: "ONE FLOW. THE RIGHT NEXT STEPS." },
+  chart: { label: "FROM DATA TO DIRECTION", legend: "EXPLORE → COMPARE → UNDERSTAND", note: "ILLUSTRATIVE DATA VISUALIZATION", churn: "churn / model comparison", other: "data / exploration" },
+  knowledge: { label: "GROUNDED IN YOUR KNOWLEDGE", nodes: ["Your documents", "Vector search", "Useful answers"], note: "CONTEXT IN. CLARITY OUT." },
+  chat: { label: "LANGUAGE THAT CONNECTS", customer: "Booking ki details form mein hain.", agent: "Shukriya! Koi dietary requirements hain?", note: "ILLUSTRATIVE CONVERSATION" },
+  vision: { label: "PATTERNS INTO POSSIBILITIES", note: "COMPUTER VISION · APPLIED AI" },
+};
