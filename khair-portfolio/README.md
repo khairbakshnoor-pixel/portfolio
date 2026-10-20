@@ -27,8 +27,9 @@ No API keys are needed. The contact form creates an encoded `mailto:` draft in t
 
 All portfolio content is in `src/data/portfolio.ts`: identity, navigation, hero, jobs, projects, skills, education, GitHub highlights, contact text, and links.
 
-- Six selected case studies appear initially. “Explore all projects” shows all 16.
+- Seven selected case studies appear initially. “Explore all projects” shows all 16.
 - Category filters include all relevant projects, including ones outside the initial six.
+- Chatbots have their own filter and a prominent early-page showcase with separate onboarding and engineering-assistant examples.
 - Each case study has challenge, implementation, outcome, technologies, and verified links where available.
 - Missing links are intentionally absent. See the `TODO` comments in the data file.
 - GitHub highlights are a reviewed static snapshot, so the site remains functional if GitHub is unavailable.
@@ -93,9 +94,9 @@ public/
 
 ## Research and editorial decisions
 
-The public GitHub account contained **36 repositories** when reviewed on 20 October 2026. The full name inventory is in the data file. Meaningful READMEs, language information, and published demo references informed the showcase. CareerTrack and Sign Studio are included under More on GitHub; client-branded repositories remain unlinked unless approved.
+The public GitHub account contained **35 public repositories** when reviewed on 20 October 2026. One chat-and-voice repository was excluded after confirming it was private. The public name inventory is in the data file. Meaningful READMEs, language information, and published demo references informed the showcase. CareerTrack and Sign Studio are included under More on GitHub; client case studies use generic descriptions.
 
-Six repository highlights: Customer Churn Dashboard, Client Onboarding Website, Attendance Machine, Real-Time Crypto Analytics Platform, AI Insurance Claim Co-Pilot, and Machine Learning Projects. Additional public projects and exercises appear under More on GitHub. Published demo links are shown alongside their source repositories when available. The customer-churn app currently resolves to a Streamlit status/login page, so its demo link is withheld until it loads normally.
+Six repository highlights: Customer Churn Dashboard, Client Onboarding Website, Attendance Machine, Real-Time Crypto Analytics Platform, AI Insurance Claim Co-Pilot, and Machine Learning Projects. Additional public projects and exercises appear under More on GitHub, including an engineering-services chatbot and the onboarding chat-and-voice experience. Published demo links are shown alongside their source repositories when available. The customer-churn app currently resolves to a Streamlit status/login page, so its demo link is withheld until it loads normally.
 
 The verified churn repository is `Customer-churn-dashboard-`, including the trailing hyphen. The PDF's lower-case URL without that trailing hyphen was replaced.
 

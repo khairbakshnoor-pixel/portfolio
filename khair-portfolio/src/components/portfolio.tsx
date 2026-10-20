@@ -104,6 +104,32 @@ function Hero() {
   </section>;
 }
 
+function ChatbotShowcase() {
+  const chatbotProjects = projects.filter(project => project.category.includes("Chatbots"));
+  return <section id="chatbots" className="chatbot-showcase section-shell" aria-labelledby="chatbot-showcase-title">
+    <div className="chatbot-showcase-heading">
+      <p className="eyebrow"><span />{p.chatbotShowcase.eyebrow}</p>
+      <h2 id="chatbot-showcase-title">{p.chatbotShowcase.title}<br /><span>{p.chatbotShowcase.accent}</span></h2>
+      <p>{p.chatbotShowcase.description}</p>
+      <a className="chatbot-showcase-link" href="#work">{p.chatbotShowcase.caseLabel}<Icon name="arrow" size={17} /></a>
+    </div>
+    <div className="chatbot-showcase-grid">
+      {chatbotProjects.slice(0, 2).map(project => <article className={`chatbot-feature accent-${project.accent}`} key={project.id}>
+        <ProjectVisual project={project} />
+        <div className="chatbot-feature-copy">
+          <span className="chatbot-feature-kicker">{project.type}</span>
+          <h3>{project.subtitle}</h3>
+          <p>{project.description}</p>
+          <div className="chatbot-feature-actions">
+            {project.demo && <a href={project.demo} target="_blank" rel="noopener noreferrer">{p.chatbotShowcase.liveLabel}<Icon name="upRight" size={15} /></a>}
+            <a href="#work">{p.chatbotShowcase.caseLabel}<Icon name="arrow" size={15} /></a>
+          </div>
+        </div>
+      </article>)}
+    </div>
+  </section>;
+}
+
 function About() {
   return <section id="about" className="section section-shell"><div className="about-layout"><Reveal className="about-image"><Portrait /><div className="about-location"><Icon name="pin" size={16} />{p.location}</div></Reveal><div><SectionHeading {...p.about} /><div className="about-copy">{p.about.paragraphs.map(text => <p key={text}>{text}</p>)}</div><div className="about-note"><span className="status-dot" />{p.about.note}</div></div></div><div className="focus-grid">{p.about.focus.map((item, index) => <Reveal key={item.title} className="focus-item"><span className="focus-index">0{index + 1}</span><h3>{item.title}</h3><p>{item.text}</p></Reveal>)}</div></section>;
 }
@@ -119,7 +145,7 @@ function ProjectVisual({ project }: { project: Project }) {
     {project.visual === "workflow" && <><span className="visual-label">{visualCopy.workflow.label}</span><div className="workflow-diagram"><div className="workflow-source"><Icon name="mic" size={18} /><span>{visualCopy.workflow.source}</span></div><div className="workflow-wire" /><div className="workflow-center"><Icon name="network" size={30} /><span>{visualCopy.workflow.center}</span></div><div className="workflow-branches"><span /><span /><span /></div><div className="workflow-targets">{visualCopy.workflow.destinations.map((item, i) => <div key={item}><Icon name={["tools", "mail", "check"][i] as IconName} size={14} />{item}</div>)}</div></div><span className="visual-foot">{visualCopy.workflow.note}</span></>}
     {project.visual === "chart" && <><span className="visual-label">{visualCopy.chart.label}</span><div className="chart-window"><div className="chart-toolbar"><i /><i /><i /><span>{project.id === "churn" ? visualCopy.chart.churn : visualCopy.chart.other}</span></div><div className="chart-body"><div className="chart-bars">{[40, 61, 52, 77, 65, 91, 81, 96, 88, 110, 98, 126].map((h, i) => <i key={i} style={{ height: `${h}px` }} />)}</div><svg viewBox="0 0 360 130" preserveAspectRatio="none"><path d="M0 115 32 95 65 102 98 69 130 76 163 56 196 66 228 32 261 42 294 18 327 28 360 4" fill="none" stroke="currentColor" strokeWidth="2.5" /></svg></div><span className="chart-note">{visualCopy.chart.note}</span></div></>}
     {project.visual === "knowledge" && <><span className="visual-label">{visualCopy.knowledge.label}</span><div className="knowledge-map"><div className="knowledge-docs"><i /><i /><i /><Icon name="book" size={28} /></div><div className="knowledge-dots" /><div className="knowledge-core"><Icon name="spark" size={35} /></div><div className="knowledge-dots" /><div className="knowledge-answer"><span /><span /><span /><Icon name="check" size={15} /></div></div><div className="knowledge-labels">{visualCopy.knowledge.nodes.map(label => <span key={label}>{label}</span>)}</div></>}
-    {project.visual === "chat" && <><span className="visual-label">{visualCopy.chat.label}</span><div className="chat-preview"><div className="chat-bubble user">{visualCopy.chat.customer}</div><div className="chat-bubble agent"><Icon name="spark" size={17} />{visualCopy.chat.agent}</div><div className="typing-dots"><i /><i /><i /></div></div><span className="visual-foot">{visualCopy.chat.note}</span></>}
+    {project.visual === "chat" && <><span className="visual-label">{project.chatPreview?.label ?? visualCopy.chat.label}</span><div className="chat-preview"><div className="chat-bubble user">{project.chatPreview?.question ?? visualCopy.chat.customer}</div><div className="chat-bubble agent"><Icon name="spark" size={17} />{project.chatPreview?.answer ?? visualCopy.chat.agent}</div><div className="typing-dots"><i /><i /><i /></div></div><span className="visual-foot">{visualCopy.chat.note}</span></>}
     {project.visual === "vision" && <><span className="visual-label">{visualCopy.vision.label}</span><div className="vision-frame"><div className="vision-head" /><div className="vision-shoulders" /><div className="vision-scan" />{[[35, 34], [65, 34], [50, 48], [40, 61], [60, 61]].map(([x, y], i) => <i key={i} style={{ left: `${x}%`, top: `${y}%` }} />)}<span className="vision-corner corner-tl" /><span className="vision-corner corner-tr" /><span className="vision-corner corner-bl" /><span className="vision-corner corner-br" /></div><span className="visual-foot">{visualCopy.vision.note}</span></>}
   </div>;
 }
@@ -230,5 +256,5 @@ function CursorGlow() {
 }
 
 export default function Portfolio() {
-  return <MotionConfig reducedMotion="user"><a className="skip-link" href="#main">{p.ui.skip}</a><Header /><main id="main"><Hero /><div className="section-rule section-shell"><span /><Icon name="spark" size={19} /><span /></div><About /><Experience /><Projects /><Skills /><Education /><Github /><Contact /></main><Footer /><CursorGlow /></MotionConfig>;
+  return <MotionConfig reducedMotion="user"><a className="skip-link" href="#main">{p.ui.skip}</a><Header /><main id="main"><Hero /><ChatbotShowcase /><div className="section-rule section-shell"><span /><Icon name="spark" size={19} /><span /></div><About /><Experience /><Projects /><Skills /><Education /><Github /><Contact /></main><Footer /><CursorGlow /></MotionConfig>;
 }

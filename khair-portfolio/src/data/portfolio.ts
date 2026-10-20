@@ -1,4 +1,4 @@
-export type Category = "AI Automation" | "Voice Agents" | "Data & ML";
+export type Category = "AI Automation" | "Voice Agents" | "Chatbots" | "Data & ML";
 export type Project = {
   id: string;
   title: string;
@@ -13,6 +13,7 @@ export type Project = {
   result: string;
   stack: string[];
   metric?: { value: string; label: string };
+  chatPreview?: { label: string; question: string; answer: string };
   repo?: string;
   demo?: string;
   featured?: boolean;
@@ -40,21 +41,21 @@ export const portfolio = {
   photoAlt: "Khair Bakhsh Noor Dad",
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://khair-bakhsh-portfolio.red-vole-8389.chatgpt.site",
   description: "I build AI voice agents, connected workflows, and knowledge-grounded chatbots. Explore my automation, data analytics, and machine learning work.",
-  nav: [{ label: "About", id: "about" }, { label: "Experience", id: "experience" }, { label: "Work", id: "work" }, { label: "Skills", id: "skills" }],
+  nav: [{ label: "About", id: "about" }, { label: "Experience", id: "experience" }, { label: "Chatbots", id: "chatbots" }, { label: "Work", id: "work" }, { label: "Skills", id: "skills" }],
   availability: "Open to meaningful collaborations",
   hero: {
     eyebrow: "AI AUTOMATION · DATA · MACHINE LEARNING",
     introduction: "Hello, I’m",
     line1: "Human ideas.",
     line2: "Intelligent systems.",
-    roles: ["AI Automation Engineer", "Voice Agent Builder", "Data & ML"],
-    description: "I turn everyday bottlenecks into connected AI workflows. From the first customer call to the next business decision.",
+    roles: ["AI Automation Engineer", "Chatbot & Voice Agent Builder", "Data & ML"],
+    description: "I build helpful chatbots, voice agents, and connected workflows that turn customer conversations into clear next steps.",
     primary: "Explore my work",
     secondary: "Let’s talk",
     scroll: "SCROLL TO EXPLORE",
     portraitLabel: "BASED IN KARACHI · BUILDING GLOBALLY",
     portraitTitle: "A human behind the automation.",
-    specialties: ["Voice agents", "Connected workflows", "Knowledge-grounded AI"],
+    specialties: ["Chatbots & voice agents", "Connected workflows", "Knowledge-grounded AI"],
   },
   stats: [{ value: 3, suffix: "", label: "roles across AI & data" }, { value: 10, suffix: "+", label: "automation builds & experiments" }, { value: 6, suffix: "", label: "ML models benchmarked" }],
   about: {
@@ -84,7 +85,7 @@ export const portfolio = {
     title: "Less busywork.",
     accent: "More possibility.",
     description: "A selection of systems I’ve built, workflows I’ve connected, and questions I’ve explored with data.",
-    filters: ["All", "AI Automation", "Voice Agents", "Data & ML"] as const,
+    filters: ["All", "AI Automation", "Chatbots", "Voice Agents", "Data & ML"] as const,
     allLabel: "Explore all projects",
     fewerLabel: "Show selected work",
     caseLabel: "Explore case study",
@@ -96,6 +97,14 @@ export const portfolio = {
     demoLabel: "Visit project",
     closeLabel: "Close case study",
     noResults: "No projects in this category yet.",
+  },
+  chatbotShowcase: {
+    eyebrow: "CONVERSATIONAL AI · BUILT FOR PEOPLE",
+    title: "Not just answers.",
+    accent: "Better conversations.",
+    description: "From a friendly first hello to a meaningful human handoff, I build chatbots around what people actually need.",
+    liveLabel: "Open live experience",
+    caseLabel: "Explore chatbot case studies",
   },
   skills: {
     eyebrow: "04 / MY TOOLKIT",
@@ -177,15 +186,16 @@ export const projects: Project[] = [
     metric: { value: "<800 ms", label: "reported voice latency" },
   },
   {
-    id: "onboarding", title: "One conversation. A connected business.", subtitle: "AI client onboarding", category: ["AI Automation", "Voice Agents"], type: "CLIENT WORK · AI CALL", visual: "workflow", accent: "cyan", featured: true,
-    description: "Chat and voice onboarding connected to the tools a team already uses.",
+    id: "onboarding", title: "A better welcome, from the very first message.", subtitle: "AI client onboarding chatbot & voice agent", category: ["AI Automation", "Chatbots", "Voice Agents"], type: "CLIENT WORK · CHAT + VOICE", visual: "chat", accent: "cyan", featured: true,
+    description: "A conversational onboarding experience that collects business details by chat or voice, then gets the next steps moving.",
     problem: "Client onboarding meant collecting the same information across disconnected conversations and business tools.",
-    built: ["I built a custom Vercel website with Claude-powered chat and Retell AI voice agents collecting 13 business fields.", "I split chat and voice into dedicated n8n branches, then connected the CRM API, Google Sheets, Gmail, Discord, and Trello.", "Call transcripts and summaries become a client knowledge file in Google Drive. I migrated the CRM integration from HubSpot to the company API."],
+    built: ["I built a custom onboarding website with a Claude-powered chatbot and a Retell AI voice agent. Together, they collect 13 business fields.", "I split chat and voice into dedicated n8n branches, then connected the CRM API, Google Sheets, Gmail, Discord, and Trello.", "Call transcripts and summaries become a client knowledge file in Google Drive. I migrated the CRM integration from HubSpot to the company API."],
     result: "A connected onboarding flow from the initial conversation to structured client records, a welcome email, team notifications, and a Trello card.",
-    stack: ["Retell AI", "Claude API", "n8n", "CRM API", "Google Workspace", "Vercel"],
+    stack: ["Claude API", "Retell AI", "n8n", "CRM API", "Google Workspace", "Vercel"],
     metric: { value: "13", label: "business fields collected" },
     repo: `${github}/Client-Onboarding-Website`,
-    // TODO: Confirm the client-facing demo is approved for portfolio linking.
+    demo: "https://ai-call-bykb.vercel.app",
+    chatPreview: { label: "A WARMER CLIENT ONBOARDING", question: "What kind of business are you building?", answer: "Let’s get the essentials down together. You can answer at your own pace." },
   },
   {
     id: "churn", title: "Finding the signal before customers leave.", subtitle: "Customer churn ML dashboard", category: ["Data & ML"], type: "MACHINE LEARNING · LIVE APP", visual: "chart", accent: "violet", featured: true,
@@ -208,12 +218,13 @@ export const projects: Project[] = [
     metric: { value: "768", label: "embedding dimensions" },
   },
   {
-    id: "urdu", title: "Local language. Natural conversations.", subtitle: "Roman Urdu catering assistant", category: ["AI Automation", "Voice Agents"], type: "CLIENT WORK · AI CALL", visual: "chat", accent: "violet", featured: true,
+    id: "urdu", title: "Local language. Natural conversations.", subtitle: "Roman Urdu catering chatbot & voice agent", category: ["AI Automation", "Chatbots", "Voice Agents"], type: "CLIENT WORK · CHAT + VOICE", visual: "chat", accent: "violet", featured: true,
     description: "A context-aware catering assistant that remembers what the customer already shared.",
     problem: "A Karachi catering business needed a conversational assistant that speaks naturally in Roman Urdu without repeatedly asking for booking details.",
     built: ["I designed short, natural Roman Urdu replies grounded in the client’s knowledge base.", "The bot uses existing form context for name, date, guests, venue, and contact information; it asks only for missing dietary needs and budget.", "I added rules against invented prices and repeated questions, then built a Retell AI voice version."],
     result: "A chat and voice experience shaped around the client’s booking process and the language their customers use.",
     stack: ["Prompt engineering", "Knowledge base", "Retell AI"],
+    chatPreview: { label: "ROMAN URDU · MADE TO FEEL NATURAL", question: "Booking ki details form mein hain.", answer: "Shukriya! Koi dietary requirements hain?" },
   },
   {
     id: "attendance", title: "From recognition to a recorded arrival.", subtitle: "Face recognition attendance", category: ["Data & ML"], type: "COMPUTER VISION · DEMONSTRATION", visual: "vision", accent: "cyan", featured: true,
@@ -225,13 +236,15 @@ export const projects: Project[] = [
     repo: `${github}/Attendance-Machine`, demo: "https://facedetectore.vercel.app",
   },
   {
-    id: "website-chat", title: "Turning website questions into next steps.", subtitle: "Engineering firm chat agent", category: ["AI Automation"], type: "CLIENT WORK · AI CALL", visual: "chat", accent: "cyan",
-    description: "A lead-capture chat widget with useful summaries for the team.",
+    id: "website-chat", title: "Turning website questions into next steps.", subtitle: "Engineering services chatbot", category: ["AI Automation", "Chatbots"], type: "CLIENT CHATBOT · WEBSITE LEADS", visual: "chat", accent: "cyan", featured: true,
+    description: "A website chatbot that answers questions about engineering services and helps turn a visitor conversation into a useful team handoff.",
     problem: "An engineering and construction firm wanted website inquiries to reach its team with useful context.",
     built: ["I built a Retell chat widget with a Claude backend and a concise system prompt.", "The conversation captures lead details early, while n8n sends a summary and transcript through Gmail.", "I deployed the client-approved widget to Vercel and wrote a WordPress/Vercel deployment guide."],
     result: "A deployed, client-approved chat flow and a practical handoff to the team.",
     stack: ["Retell AI", "Claude", "n8n", "Gmail", "Vercel"],
-    // TODO: Client-identifying repository links intentionally withheld pending approval.
+    repo: `${github}/Gregs-ChatBot-1`,
+    chatPreview: { label: "A HELPFUL ENGINEERING ASSISTANT", question: "Can you help with a building safety inspection?", answer: "Absolutely. I can explain the inspection process and help you find the right next step." },
+    // TODO: Link the live chatbot only after confirming the client approves a public portfolio link.
   },
   {
     id: "ghl-audit", title: "Giving every lead a clear path.", subtitle: "GoHighLevel automation audit", category: ["AI Automation"], type: "CLIENT WORK · ARCHITECTURE AUDIT", visual: "workflow", accent: "violet",
@@ -318,6 +331,8 @@ export const repositories: Repository[] = [
   { name: "Crypto analytics platform", description: "API ingestion, SQLite storage, and a Streamlit analytics dashboard.", language: "Python", url: `${github}/Real-Time-Crypto-Analytics-Platform`, pinned: true, demo: "https://real-time-crypto-analytics-platform-axuqpnotjnurzdnuyfvexv.streamlit.app/" },
   { name: "Insurance claim co-pilot", description: "A multimodal hackathon demo with explainability and human review.", language: "Python", url: `${github}/-AI-Insurance-Claim-Co-Pilot`, pinned: true },
   { name: "Machine learning projects", description: "Notebooks for student performance, lending, and score prediction.", language: "Jupyter Notebook", url: `${github}/MACHINE-LEARNING-PROJECTS`, pinned: true },
+  { name: "Engineering website chatbot", description: "An AI chat widget for engineering questions and website lead handoffs.", language: "HTML", url: `${github}/Gregs-ChatBot-1` },
+  { name: "AI client onboarding chatbot", description: "A Claude chat assistant with a voice companion and automated onboarding workflow.", language: "HTML", url: `${github}/Client-Onboarding-Website`, demo: "https://ai-call-bykb.vercel.app" },
   { name: "FoodExpress", description: "A frontend food-ordering demonstration with cart interactions.", language: "HTML · CSS · JavaScript", url: `${github}/Bano-Qabil-Final-paper-project`, demo: "https://khairbakshnoor-pixel.github.io/Bano-Qabil-Final-paper-project/" },
   { name: "CareerTrack", description: "A full-stack career workspace for profiles, applications, and interview preparation.", language: "TypeScript", url: `${github}/careertrack`, demo: "https://careertrack-psi.vercel.app" },
   { name: "Sign Studio", description: "A browser-based hand-gesture recognition and guided-practice project.", language: "JavaScript", url: `${github}/Face-Hand-Gesture-Analyzer`, demo: "https://sign-studio-alpha.vercel.app" },
@@ -347,10 +362,10 @@ export const repositories: Repository[] = [
   { name: "GitHub profile", description: "My public profile and programming journey.", language: "Markdown", url: `${github}/khairbakshnoor-pixel` },
 ];
 
-// Full public repository inventory. Client-identifying repository names are deliberately
+// Public repository inventory. Client-identifying repository names are deliberately
 // kept in this source-only inventory rather than rendered on the public site.
 export const githubInventory = [
-  "Assembly-Language", "DSA-", "YTH-Chat-and-voice-agent", "Gregs-Chat-Bot",
+  "Assembly-Language", "DSA-", "Gregs-Chat-Bot",
   "careertrack", "Attendance-Machine", "Face-Hand-Gesture-Analyzer",
   "Real-Time-Crypto-Analytics-Platform", "-AI-Insurance-Claim-Co-Pilot",
   "Client-Onboarding-Website", "Gregs-ChatBot-1", "AI-Innovation-Hackathon-Co-Pilot",
