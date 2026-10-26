@@ -96,7 +96,7 @@ public/
 
 GitHub lists **33 public repositories** as of 26 October 2026. All 33 currently public repositories are included in the searchable “More on GitHub” catalog. Repositories that are private are not linked.
 
-Six repository highlights: Customer Churn Dashboard, Client Onboarding Website, the Engineering Project Chatbot, Attendance Machine, Real-Time Crypto Analytics Platform, and AI Insurance Claim Co-Pilot. Search or filter the full repository catalog by name, description, or language. Live chatbot demonstrations are kept separate from their public source links; the YTH assistant currently has no publicly accessible GitHub repository. The customer-churn app currently resolves to a Streamlit status/login page, so its demo link is withheld until it loads normally.
+Six repository highlights: Customer Churn Dashboard, Client Onboarding Website, the Engineering Project Chatbot, Attendance Machine, Real-Time Crypto Analytics Platform, and AI Insurance Claim Co-Pilot. Search or filter the full repository catalog by name, description, or language. Live chatbot demonstrations are kept separate from their public source links; the YTH assistant currently has no publicly accessible GitHub repository. The churn, crypto analytics, and SMIT hackathon demos are linked from their matching project cards.
 
 The verified churn repository is `Customer-churn-dashboard-`, including the trailing hyphen. The PDF's lower-case URL without that trailing hyphen was replaced.
 

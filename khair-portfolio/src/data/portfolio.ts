@@ -207,7 +207,7 @@ export const projects: Project[] = [
     stack: ["Python", "scikit-learn", "Pandas", "Plotly", "Streamlit"],
     metric: { value: "0.84", label: "reported ROC-AUC" },
     repo: `${github}/Customer-churn-dashboard-`,
-    // TODO: Restore the Streamlit demo after it loads instead of showing a status/login page.
+    demo: "https://khairbakshnoor-pixel-customer-churn-dashboard--app-fhelsw.streamlit.app/",
   },
   {
     id: "rag", title: "Answers rooted in your knowledge.", subtitle: "Company knowledge RAG agent", category: ["AI Automation"], type: "AI ENGINEERING · KNOWLEDGE SYSTEM", visual: "knowledge", accent: "cyan", featured: true,
@@ -336,7 +336,7 @@ export const projects: Project[] = [
 ];
 
 export const repositories: Repository[] = [
-  { name: "Customer churn dashboard", description: "Compare six ML models, explore churn patterns, and test individual customer predictions.", language: "Python", url: `${github}/Customer-churn-dashboard-`, pinned: true },
+  { name: "Customer churn dashboard", description: "Compare six ML models, explore churn patterns, and test individual customer predictions.", language: "Python", url: `${github}/Customer-churn-dashboard-`, pinned: true, demo: "https://khairbakshnoor-pixel-customer-churn-dashboard--app-fhelsw.streamlit.app/" },
   { name: "Client onboarding chatbot", description: "A text-and-voice onboarding experience connected to client records and team workflows.", language: "HTML · JavaScript", url: `${github}/Client-Onboarding-Website`, pinned: true, demo: "https://ai-call-bykb.vercel.app" },
   { name: "Engineering project chatbot", description: "A conversational engineering website assistant with a guided project-start experience.", language: "HTML", url: `${github}/Gregs-Chat-Bot`, pinned: true, demo: "https://gregs-chat-bot-1ut3.vercel.app/" },
   { name: "Face recognition attendance", description: "A local-camera computer-vision attendance demo with recognition and an analytics dashboard.", language: "Python", url: `${github}/Attendance-Machine`, pinned: true, demo: "https://facedetectore.vercel.app" },
@@ -345,7 +345,7 @@ export const repositories: Repository[] = [
   { name: "Machine learning projects", description: "Jupyter notebooks for student performance, loan approval, and score prediction.", language: "Jupyter Notebook", url: `${github}/MACHINE-LEARNING-PROJECTS` },
   { name: "Engineering chatbot experiment", description: "An additional HTML chatbot experiment for engineering-service questions.", language: "HTML", url: `${github}/Gregs-ChatBot-1` },
   { name: "FoodExpress", description: "A responsive food-ordering interface with interactive cart features.", language: "HTML · CSS", url: `${github}/Bano-Qabil-Final-paper-project`, demo: "https://khairbakshnoor-pixel.github.io/Bano-Qabil-Final-paper-project/" },
-  { name: "AI data analysis challenge", description: "Explore CSV data with summaries, chart generation, and structured questions.", language: "Python", url: `${github}/SMIT-HACKHATHON` },
+  { name: "AI data analysis challenge", description: "Explore CSV data with summaries, chart generation, and structured questions.", language: "Python", url: `${github}/SMIT-HACKHATHON`, demo: "https://khairbakshnoor-pixel-kbhacathon-streamlit-app-boumug.streamlit.app/" },
   { name: "Bank management system", description: "A Java banking exercise covering accounts, deposits, and transactions.", language: "Java", url: `${github}/hackhathon-BANK-management-system` },
   { name: "Student result management", description: "A C program for storing, searching, and updating student records.", language: "C", url: `${github}/Student-Result-Management` },
   { name: "AI Innovation Hackathon Co-Pilot", description: "A second hackathon exploration of human-reviewed AI assistance.", language: "Python", url: `${github}/AI-Innovation-Hackathon-Co-Pilot` },
