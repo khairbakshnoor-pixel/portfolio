@@ -105,7 +105,7 @@ function Hero() {
 }
 
 function ChatbotShowcase() {
-  const chatbotProjects = projects.filter(project => project.category.includes("Chatbots"));
+  const chatbotProjects = projects.filter(project => project.category.includes("Chatbots") && p.chatbotShowcase.projects.includes(project.id));
   return <section id="chatbots" className="chatbot-showcase section-shell" aria-labelledby="chatbot-showcase-title">
     <div className="chatbot-showcase-heading">
       <p className="eyebrow"><span />{p.chatbotShowcase.eyebrow}</p>
@@ -114,7 +114,7 @@ function ChatbotShowcase() {
       <a className="chatbot-showcase-link" href="#work">{p.chatbotShowcase.caseLabel}<Icon name="arrow" size={17} /></a>
     </div>
     <div className="chatbot-showcase-grid">
-      {chatbotProjects.slice(0, 2).map(project => <article className={`chatbot-feature accent-${project.accent}`} key={project.id}>
+      {chatbotProjects.map(project => <article className={`chatbot-feature accent-${project.accent}`} key={project.id}>
         <ProjectVisual project={project} />
         <div className="chatbot-feature-copy">
           <span className="chatbot-feature-kicker">{project.type}</span>
@@ -199,6 +199,13 @@ function Education() {
 }
 
 function Github() {
+  const [query, setQuery] = useState("");
+  const [language, setLanguage] = useState("All languages");
+  const languages = Array.from(new Set(repositories.map(repository => repository.language))).sort();
+  const matchingRepositories = repositories.filter(repository => {
+    const matchesQuery = `${repository.name} ${repository.description} ${repository.language}`.toLowerCase().includes(query.trim().toLowerCase());
+    return matchesQuery && (language === "All languages" || repository.language === language);
+  });
   return <section id="github" className="section section-shell">
     <div className="github-heading">
       <SectionHeading {...p.githubSection} />
@@ -206,16 +213,17 @@ function Github() {
     </div>
     <div className="repo-grid">{repositories.filter(repo => repo.pinned).map(repo => <Reveal key={repo.name}><RepositoryCard repository={repo} /></Reveal>)}</div>
     <details className="more-repos">
-      <summary>{p.githubSection.moreLabel}<Icon name="chevron" size={17} /></summary>
+      <summary>{p.githubSection.moreLabel}<span className="repo-total">{repositories.length} projects</span><Icon name="chevron" size={17} /></summary>
       <div>
-        {repositories.filter(repo => !repo.pinned).map(repo => <div className="repo-archive-item" key={repo.name}>
-          <a className="repo-archive-source" href={repo.url} target="_blank" rel="noopener noreferrer">
-            <span><strong>{repo.name}</strong><span>{repo.description} · {repo.language}</span></span>
-            <Icon name="upRight" size={17} />
-          </a>
-          {repo.demo && <a className="repo-archive-demo" href={repo.demo} target="_blank" rel="noopener noreferrer">{p.githubSection.demoLabel}<Icon name="upRight" size={14} /></a>}
-        </div>)}
-        <a href={`${p.github}?tab=repositories`} target="_blank" rel="noopener noreferrer">{p.githubSection.archiveLabel}<Icon name="arrow" size={17} /></a>
+        <div className="repo-browser">
+          <label className="repo-search"><span className="sr-only">Search all GitHub projects</span><input type="search" value={query} onChange={event => setQuery(event.target.value)} placeholder="Search projects or technologies" /></label>
+          <label className="repo-language-filter"><span className="sr-only">Filter GitHub projects by language</span><select value={language} onChange={event => setLanguage(event.target.value)}><option>All languages</option>{languages.map(item => <option key={item}>{item}</option>)}</select></label>
+        </div>
+        <p className="repo-results" role="status">Showing {matchingRepositories.length} of {repositories.length} public projects</p>
+        {matchingRepositories.length > 0
+          ? <div className="repo-grid repo-catalog">{matchingRepositories.map(repo => <Reveal key={repo.name}><RepositoryCard repository={repo} /></Reveal>)}</div>
+          : <p className="repo-empty">No projects match that search. Try another name or language.</p>}
+        <a className="repo-profile-link" href={`${p.github}?tab=repositories`} target="_blank" rel="noopener noreferrer">{p.githubSection.archiveLabel}<Icon name="arrow" size={17} /></a>
       </div>
     </details>
   </section>;

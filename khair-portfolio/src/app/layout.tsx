@@ -4,12 +4,12 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(portfolio.siteUrl),
-  title: `${portfolio.fullName} | AI Automation Engineer`,
+  title: `${portfolio.fullName} | AI Chatbots & Automation`,
   description: portfolio.description,
   authors: [{ name: portfolio.fullName, url: portfolio.github }],
   alternates: { canonical: "/" },
-  openGraph: { title: `${portfolio.name} — Human ideas. Intelligent systems.`, description: portfolio.description, type: "website", url: "/", locale: "en_US", siteName: portfolio.fullName, images: [{ url: "/og-image.png", width: 1200, height: 630, alt: portfolio.title }] },
-  twitter: { card: "summary_large_image", title: `${portfolio.name} | AI Automation Engineer`, description: portfolio.description, images: ["/og-image.png"] },
+  openGraph: { title: `${portfolio.name} — AI chatbots, voice agents & automation`, description: portfolio.description, type: "website", url: "/", locale: "en_US", siteName: portfolio.fullName, images: [{ url: "/og-image.png", width: 1200, height: 630, alt: portfolio.title }] },
+  twitter: { card: "summary_large_image", title: `${portfolio.name} | AI Chatbots & Automation`, description: portfolio.description, images: ["/og-image.png"] },
   robots: { index: true, follow: true },
   icons: { icon: "/icon.svg", apple: "/apple-touch-icon.png" },
 };
