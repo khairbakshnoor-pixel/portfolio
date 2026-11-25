@@ -35,9 +35,9 @@ All portfolio content is in `src/data/portfolio.ts`: identity, navigation, hero,
 - GitHub highlights are a reviewed static snapshot, so the site remains functional if GitHub is unavailable.
 - Client names and client-identifying demo links are withheld. Add only approved links.
 
-### Replace the photo
+### Portrait-free design
 
-Replace **`public/images/khair.jpg`** with your photo, keeping the filename. The supplied `dp.jpeg` has already been copied here. A missing or unreadable file automatically displays a KB initials avatar. The site uses `next/image`; Vercel enables native image optimization. A static export serves the already compact supplied JPEG directly.
+The portfolio does not display a profile photo. The hero and About sections use a short list of focus areas, location, and project details instead; no portrait asset is required.
 
 ### Add your CV
 
@@ -85,7 +85,6 @@ src/
   data/portfolio.ts    # Typed editable content and repository inventory
 public/
   fonts/               # Self-hosted fonts and OFL licenses
-  images/khair.jpg     # Replace this single file to change your portrait
   cv.pdf               # Explicit placeholder until an approved CV is supplied
   og-image.png         # Social sharing artwork
   icon.svg             # KB favicon

@@ -5,15 +5,12 @@ export type Project = {
   subtitle: string;
   category: Category[];
   type: string;
-  visual: "voice" | "workflow" | "chart" | "knowledge" | "chat" | "vision";
-  accent: "violet" | "cyan";
   description: string;
   problem: string;
   built: string[];
   result: string;
   stack: string[];
   metric?: { value: string; label: string };
-  chatPreview?: { label: string; question: string; answer: string };
   repo?: string;
   demo?: string;
   featured?: boolean;
@@ -37,8 +34,6 @@ export const portfolio = {
   github,
   linkedin: "https://linkedin.com/in/khair-bakhsh-54714b339",
   location: "Karachi, Pakistan",
-  photo: "/images/khair.jpg",
-  photoAlt: "Khair Bakhsh Noor Dad",
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://khair-bakhsh-portfolio.red-vole-8389.chatgpt.site",
   description: "I build thoughtful AI chatbots, voice agents, and connected automations. Explore live conversation experiences, workflow systems, and data projects.",
   nav: [{ label: "About", id: "about" }, { label: "Experience", id: "experience" }, { label: "Chatbots", id: "chatbots" }, { label: "Work", id: "work" }, { label: "Skills", id: "skills" }],
@@ -53,8 +48,7 @@ export const portfolio = {
     primary: "Explore my work",
     secondary: "Let’s talk",
     scroll: "SCROLL TO EXPLORE",
-    portraitLabel: "BASED IN KARACHI · BUILDING GLOBALLY",
-    portraitTitle: "A human behind the automation.",
+    focusLabel: "AREAS OF FOCUS",
     specialties: ["Chatbots & voice agents", "Connected workflows", "Knowledge-grounded AI"],
   },
   stats: [{ value: 3, suffix: "", label: "roles across AI & data" }, { value: 10, suffix: "+", label: "automation builds & experiments" }, { value: 6, suffix: "", label: "ML models benchmarked" }],
@@ -178,7 +172,7 @@ export const portfolio = {
 
 export const projects: Project[] = [
   {
-    id: "speed-to-lead", title: "A first response that feels human.", subtitle: "Speed-to-lead voice agent", category: ["AI Automation", "Voice Agents"], type: "CLIENT WORK · AI CALL", visual: "voice", accent: "violet", featured: true,
+    id: "speed-to-lead", title: "A first response that feels human.", subtitle: "Speed-to-lead voice agent", category: ["AI Automation", "Voice Agents"], type: "CLIENT WORK · AI CALL", featured: true,
     description: "An outbound voice agent that turns a wellness inquiry into a qualified conversation.",
     problem: "A wellness clinic network needed a consistent way to respond to new inquiries, qualify interest, and route people to the right next step.",
     built: ["I built a Retell AI agent with ElevenLabs HD voice, Twilio telephony, a three-minute call cap, recordings, transcripts, and three retry attempts.", "I connected website forms through n8n and personalized greetings with CRM variables.", "The knowledge base covers services, eight locations, and FAQs. Function calls handle booking and Slack handoffs. Guardrails exclude medical advice, pricing, and promises of results.", "I tested the conversation with mock calls and also built a separate inbound agent."],
@@ -187,7 +181,7 @@ export const projects: Project[] = [
     metric: { value: "<800 ms", label: "reported voice latency" },
   },
   {
-    id: "onboarding", title: "A better welcome, from the very first message.", subtitle: "AI client onboarding chatbot & voice agent", category: ["AI Automation", "Chatbots", "Voice Agents"], type: "CLIENT WORK · CHAT + VOICE", visual: "chat", accent: "cyan", featured: true,
+    id: "onboarding", title: "A better welcome, from the very first message.", subtitle: "AI client onboarding chatbot & voice agent", category: ["AI Automation", "Chatbots", "Voice Agents"], type: "CLIENT WORK · CHAT + VOICE", featured: true,
     description: "A conversational onboarding experience that collects business details by chat or voice, then gets the next steps moving.",
     problem: "Client onboarding meant collecting the same information across disconnected conversations and business tools.",
     built: ["I built a custom onboarding website with a Claude-powered chatbot and a Retell AI voice agent. Together, they collect 13 business fields.", "I split chat and voice into dedicated n8n branches, then connected the CRM API, Google Sheets, Gmail, Discord, and Trello.", "Call transcripts and summaries become a client knowledge file in Google Drive. I migrated the CRM integration from HubSpot to the company API."],
@@ -196,10 +190,9 @@ export const projects: Project[] = [
     metric: { value: "13", label: "business fields collected" },
     repo: `${github}/Client-Onboarding-Website`,
     demo: "https://ai-call-bykb.vercel.app",
-    chatPreview: { label: "A WARMER CLIENT ONBOARDING", question: "What kind of business are you building?", answer: "Let’s get the essentials down together. You can answer at your own pace." },
   },
   {
-    id: "churn", title: "Finding the signal before customers leave.", subtitle: "Customer churn ML dashboard", category: ["Data & ML"], type: "MACHINE LEARNING · LIVE APP", visual: "chart", accent: "violet", featured: true,
+    id: "churn", title: "Finding the signal before customers leave.", subtitle: "Customer churn ML dashboard", category: ["Data & ML"], type: "MACHINE LEARNING · LIVE APP", featured: true,
     description: "Six models. One interactive view of the patterns behind customer churn.",
     problem: "Understanding churn requires more than a prediction: it needs a clear view of customer behavior and a fair comparison of candidate models.",
     built: ["I built an end-to-end Streamlit app using the Telco Customer dataset with 7,043 records and 20 features.", "I compared Logistic Regression, Decision Tree, Random Forest, KNN, SVM, and Gradient Boosting using a preprocessing pipeline, one-hot encoding, StandardScaler, and a stratified split.", "Plotly visualizations explore churn drivers. The app includes a model leaderboard and single-customer predictions with model confidence scores."],
@@ -210,7 +203,7 @@ export const projects: Project[] = [
     demo: "https://khairbakshnoor-pixel-customer-churn-dashboard--app-fhelsw.streamlit.app/",
   },
   {
-    id: "rag", title: "Answers rooted in your knowledge.", subtitle: "Company knowledge RAG agent", category: ["AI Automation"], type: "AI ENGINEERING · KNOWLEDGE SYSTEM", visual: "knowledge", accent: "cyan", featured: true,
+    id: "rag", title: "Answers rooted in your knowledge.", subtitle: "Company knowledge RAG agent", category: ["AI Automation"], type: "AI ENGINEERING · KNOWLEDGE SYSTEM", featured: true,
     description: "A retrieval pipeline that connects company knowledge to an n8n agent.",
     problem: "Useful business assistants need relevant company context, while keeping the embedding workflow affordable and inspectable.",
     built: ["I ran Ollama nomic-embed-text embeddings in Google Colab behind a Cloudflare Tunnel.", "I stored 768-dimensional vectors in Supabase pgvector and connected retrieval to an n8n Cloud agent.", "I created a question bank to test responses against the company knowledge."],
@@ -219,16 +212,15 @@ export const projects: Project[] = [
     metric: { value: "768", label: "embedding dimensions" },
   },
   {
-    id: "urdu", title: "Local language. Natural conversations.", subtitle: "Roman Urdu catering chatbot & voice agent", category: ["AI Automation", "Chatbots", "Voice Agents"], type: "CLIENT WORK · CHAT + VOICE", visual: "chat", accent: "violet", featured: true,
+    id: "urdu", title: "Local language. Natural conversations.", subtitle: "Roman Urdu catering chatbot & voice agent", category: ["AI Automation", "Chatbots", "Voice Agents"], type: "CLIENT WORK · CHAT + VOICE", featured: true,
     description: "A context-aware catering assistant that remembers what the customer already shared.",
     problem: "A Karachi catering business needed a conversational assistant that speaks naturally in Roman Urdu without repeatedly asking for booking details.",
     built: ["I designed short, natural Roman Urdu replies grounded in the client’s knowledge base.", "The bot uses existing form context for name, date, guests, venue, and contact information; it asks only for missing dietary needs and budget.", "I added rules against invented prices and repeated questions, then built a Retell AI voice version."],
     result: "A chat and voice experience shaped around the client’s booking process and the language their customers use.",
     stack: ["Prompt engineering", "Knowledge base", "Retell AI"],
-    chatPreview: { label: "ROMAN URDU · MADE TO FEEL NATURAL", question: "Booking ki details form mein hain.", answer: "Shukriya! Koi dietary requirements hain?" },
   },
   {
-    id: "attendance", title: "From recognition to a recorded arrival.", subtitle: "Face recognition attendance", category: ["Data & ML"], type: "COMPUTER VISION · DEMONSTRATION", visual: "vision", accent: "cyan", featured: true,
+    id: "attendance", title: "From recognition to a recorded arrival.", subtitle: "Face recognition attendance", category: ["Data & ML"], type: "COMPUTER VISION · DEMONSTRATION", featured: true,
     description: "A local-camera attendance demo with face matching, a head-turn challenge, and analytics.",
     problem: "An attendance demonstration needed to connect face recognition with enrollment, sign-in, and useful reporting.",
     built: ["I built a Python workflow with YuNet face detection, SFace embeddings, and cosine-similarity matching.", "The local demo includes multi-sample enrollment, a head-turn challenge, administrator access, and SQLite attendance records.", "A Streamlit dashboard supports analytics and CSV exports; a separate frontend provides a visual showcase."],
@@ -237,7 +229,7 @@ export const projects: Project[] = [
     repo: `${github}/Attendance-Machine`, demo: "https://facedetectore.vercel.app",
   },
   {
-    id: "website-chat", title: "A friendly first step for engineering questions.", subtitle: "Engineering project assistant chatbot", category: ["AI Automation", "Chatbots"], type: "CLIENT CHATBOT · WEB EXPERIENCE", visual: "chat", accent: "cyan", featured: true,
+    id: "website-chat", title: "A friendly first step for engineering questions.", subtitle: "Engineering project assistant chatbot", category: ["AI Automation", "Chatbots"], type: "CLIENT CHATBOT · WEB EXPERIENCE", featured: true,
     description: "A conversational website assistant that helps visitors explore engineering services, ask about a project, and find a useful next step.",
     problem: "A specialist engineering team wanted a welcoming way to answer common website questions and guide potential clients toward a helpful next step.",
     built: ["I created a polished assistant experience around a Retell chat widget, with a friendly welcome and clear prompts for project questions.", "I designed the conversation to provide practical guidance about engineering and construction services without overwhelming visitors.", "I deployed the live website and connected the assistant experience to its public launch."],
@@ -245,20 +237,18 @@ export const projects: Project[] = [
     stack: ["Retell AI", "Chat widget", "Prompt design", "HTML", "CSS", "JavaScript"],
     repo: `${github}/Gregs-Chat-Bot`,
     demo: "https://gregs-chat-bot-1ut3.vercel.app/",
-    chatPreview: { label: "A HELPFUL PROJECT CONVERSATION", question: "I have a question about an engineering project.", answer: "I'd be happy to help you explore your project and find the right next step." },
   },
   {
-    id: "yth-assistant", title: "Questions, conversations, next steps.", subtitle: "Website chatbot with a voice option", category: ["AI Automation", "Chatbots", "Voice Agents"], type: "AI ASSISTANT · TEXT + VOICE", visual: "chat", accent: "violet", featured: true,
+    id: "yth-assistant", title: "Questions, conversations, next steps.", subtitle: "Website chatbot with a voice option", category: ["AI Automation", "Chatbots", "Voice Agents"], type: "AI ASSISTANT · TEXT + VOICE", featured: true,
     description: "A welcoming website assistant where visitors can type a question or switch to voice and continue the conversation naturally.",
     problem: "People may know they need help before they know exactly what to ask. This experience gives visitors a low-pressure place to start.",
     built: ["I built a guided website experience for open-ended questions, helpful follow-ups, and natural conversation.", "Visitors can start in text or choose voice, so they can use the interaction style that feels right to them.", "I designed the page to make the assistant easy to discover and the next step simple to take."],
     result: "A live, flexible first-contact experience that supports text and voice conversations on the same website.",
     stack: ["Retell AI", "Chat widget", "Voice AI", "Conversation design"],
     demo: "https://yth-chat-and-voice-agent-three.vercel.app/",
-    chatPreview: { label: "YOUR NEXT STEP, AT YOUR PACE", question: "I have a few questions.", answer: "You’re in the right place. Let’s take it one step at a time." },
   },
   {
-    id: "ghl-audit", title: "Giving every lead a clear path.", subtitle: "GoHighLevel automation audit", category: ["AI Automation"], type: "CLIENT WORK · ARCHITECTURE AUDIT", visual: "workflow", accent: "violet",
+    id: "ghl-audit", title: "Giving every lead a clear path.", subtitle: "GoHighLevel automation audit", category: ["AI Automation"], type: "CLIENT WORK · ARCHITECTURE AUDIT",
     description: "An automation plan for two event and catering businesses.",
     problem: "Manual follow-up slowed a pipeline with 1,200+ leads and a reported conversion baseline of 2.65%.",
     built: ["I audited the GoHighLevel account and designed a pipeline around an eight-step sales flow.", "I proposed AI qualification, WhatsApp automation and a catalog, review requests, and follow-ups timed to each event date.", "I designed dynamic spacing with GoHighLevel If/Else and Wait Until conditions."],
@@ -266,7 +256,7 @@ export const projects: Project[] = [
     stack: ["GoHighLevel", "WhatsApp API", "n8n"],
   },
   {
-    id: "receptionist", title: "The right person, one call away.", subtitle: "Skilled nursing voice receptionist", category: ["Voice Agents"], type: "VOICE AI · DEMO", visual: "voice", accent: "cyan",
+    id: "receptionist", title: "The right person, one call away.", subtitle: "Skilled nursing voice receptionist", category: ["Voice Agents"], type: "VOICE AI · DEMO",
     description: "A call-routing demo with structured transfers and knowledge-based reference content.",
     problem: "A receptionist demo needed to route callers across admissions, nursing stations, rooms, extensions, and departments.",
     built: ["I designed multiple transfer functions for different caller needs.", "I shortened a long prompt and moved reference information into a knowledge base to reduce unsupported responses."],
@@ -274,7 +264,7 @@ export const projects: Project[] = [
     stack: ["Voice AI", "GPT-4.1 mini", "Knowledge base", "Function calling"],
   },
   {
-    id: "crm", title: "From new lead to next action.", subtitle: "CRM & lead pipeline automation", category: ["AI Automation"], type: "AUTOMATION · CRM", visual: "workflow", accent: "violet",
+    id: "crm", title: "From new lead to next action.", subtitle: "CRM & lead pipeline automation", category: ["AI Automation"], type: "AUTOMATION · CRM",
     description: "Connected contact records, deal stages, and follow-ups.",
     problem: "Forms and calls needed to enter a consistent sales process instead of becoming isolated records.",
     built: ["I created Contacts and Deals stages: New Lead, Contacted, Qualified, Proposal Sent, and Closed Won.", "I added a Lead Source property and n8n automations from form or call to CRM to follow-up."],
@@ -282,7 +272,7 @@ export const projects: Project[] = [
     stack: ["HubSpot", "n8n", "REST APIs"],
   },
   {
-    id: "research-agent", title: "From scattered signals to a useful draft.", subtitle: "AI news research agent", category: ["AI Automation"], type: "AUTOMATION · RESEARCH", visual: "knowledge", accent: "cyan",
+    id: "research-agent", title: "From scattered signals to a useful draft.", subtitle: "AI news research agent", category: ["AI Automation"], type: "AUTOMATION · RESEARCH",
     description: "A multi-source research workflow that keeps a human in the publishing loop.",
     problem: "Researching timely AI topics for a US small-business audience meant gathering information from many sources.",
     built: ["I connected blogs, RSS, YouTube Data API, Google Trends via SerpApi, and social sources via Apify.", "An AI agent analyzes cross-source patterns and drafts a LinkedIn hook, body, and call to action.", "Drafts are saved for review with a detailed Google Sheets research log."],
@@ -290,7 +280,7 @@ export const projects: Project[] = [
     stack: ["n8n", "Apify", "SerpApi", "YouTube Data API", "Google Sheets"],
   },
   {
-    id: "heart", title: "Exploring patterns in clinical data.", subtitle: "Heart disease prediction", category: ["Data & ML"], type: "MACHINE LEARNING · STUDY", visual: "chart", accent: "violet",
+    id: "heart", title: "Exploring patterns in clinical data.", subtitle: "Heart disease prediction", category: ["Data & ML"], type: "MACHINE LEARNING · STUDY",
     description: "A comparison of Logistic Regression and KNN on a clinical dataset.",
     problem: "I wanted to understand how simple classifiers perform on structured health data.",
     built: ["I prepared a 303-record dataset and evaluated Logistic Regression and KNN.", "I explored predictive features and identified the top five in the analysis."],
@@ -298,7 +288,7 @@ export const projects: Project[] = [
     stack: ["Python", "Pandas", "scikit-learn"],
   },
   {
-    id: "real-estate", title: "Making property data easier to read.", subtitle: "Real estate price prediction", category: ["Data & ML"], type: "MACHINE LEARNING · STUDY", visual: "chart", accent: "cyan",
+    id: "real-estate", title: "Making property data easier to read.", subtitle: "Real estate price prediction", category: ["Data & ML"], type: "MACHINE LEARNING · STUDY",
     description: "A regression workflow from messy housing records to an evaluated model.",
     problem: "A housing dataset needed cleaning and consistent features before price modeling.",
     built: ["I cleaned 500+ records, handling missing values, outliers, and categorical encoding.", "I used Linear Regression and evaluated the fit on the prepared dataset."],
@@ -306,7 +296,7 @@ export const projects: Project[] = [
     stack: ["Python", "Pandas", "Matplotlib", "Seaborn", "scikit-learn"],
   },
   {
-    id: "eda", title: "Different datasets. Better questions.", subtitle: "Multi-domain EDA portfolio", category: ["Data & ML"], type: "DATA ANALYSIS · NOTEBOOKS", visual: "chart", accent: "violet",
+    id: "eda", title: "Different datasets. Better questions.", subtitle: "Multi-domain EDA portfolio", category: ["Data & ML"], type: "DATA ANALYSIS · NOTEBOOKS",
     description: "Exploratory analysis across student performance, lending, sales, health, and real estate.",
     problem: "Each domain brings different data-quality issues and questions worth exploring.",
     built: ["I cleaned and explored datasets with Pandas and NumPy.", "I visualized distributions, relationships, and patterns using Matplotlib and Seaborn.", "Related public notebooks cover student performance, bank loan approval, and score prediction."],
@@ -315,7 +305,7 @@ export const projects: Project[] = [
     repo: `${github}/MACHINE-LEARNING-PROJECTS`,
   },
   {
-    id: "crypto", title: "A clearer view of a moving market.", subtitle: "Crypto analytics platform", category: ["Data & ML"], type: "DATA ENGINEERING · PUBLIC PROJECT", visual: "chart", accent: "cyan",
+    id: "crypto", title: "A clearer view of a moving market.", subtitle: "Crypto analytics platform", category: ["Data & ML"], type: "DATA ENGINEERING · PUBLIC PROJECT",
     description: "A Streamlit dashboard backed by CoinGecko data and a SQLite snapshot.",
     problem: "Market data needed a repeatable path from API responses to a structured, explorable dashboard.",
     built: ["I connected a CoinGecko data pipeline to SQLite and a Streamlit dashboard.", "I added analysis of stored market records and explicit handling for update failures."],
@@ -325,7 +315,7 @@ export const projects: Project[] = [
     demo: "https://real-time-crypto-analytics-platform-axuqpnotjnurzdnuyfvexv.streamlit.app/",
   },
   {
-    id: "insurance", title: "AI assistance. Human judgment.", subtitle: "Insurance claim co-pilot", category: ["Data & ML"], type: "APPLIED AI · HACKATHON DEMO", visual: "vision", accent: "violet",
+    id: "insurance", title: "AI assistance. Human judgment.", subtitle: "Insurance claim co-pilot", category: ["Data & ML"], type: "APPLIED AI · HACKATHON DEMO",
     description: "An explainable claim-review demo with a required human approval step.",
     problem: "Claims reviewers need to understand an AI recommendation before acting on it.",
     built: ["I combined image, tabular, and text evidence in a Streamlit demonstration.", "The project includes model explanations, human approve/reject/modify actions, and downloadable reports."],
@@ -386,12 +376,3 @@ export const githubInventory = [
   "python-patterns", "python-practice", "python-projects-",
   "Real-Time-Crypto-Analytics-Platform", "SMIT-HACKHATHON", "Student-Result-Management",
 ];
-
-export const visualCopy = {
-  voice: { label: "VOICE INTELLIGENCE", status: "CONVERSATION FLOW", line: "Listen. Understand. Take action.", nodes: ["New inquiry", "Qualify", "Connect"] },
-  workflow: { label: "CONNECTED OPERATIONS", source: "A conversation", center: "n8n", destinations: ["CRM", "Welcome email", "Team handoff"], note: "ONE FLOW. THE RIGHT NEXT STEPS." },
-  chart: { label: "FROM DATA TO DIRECTION", legend: "EXPLORE → COMPARE → UNDERSTAND", note: "ILLUSTRATIVE DATA VISUALIZATION", churn: "churn / model comparison", other: "data / exploration" },
-  knowledge: { label: "GROUNDED IN YOUR KNOWLEDGE", nodes: ["Your documents", "Vector search", "Useful answers"], note: "CONTEXT IN. CLARITY OUT." },
-  chat: { label: "LANGUAGE THAT CONNECTS", customer: "Booking ki details form mein hain.", agent: "Shukriya! Koi dietary requirements hain?", note: "ILLUSTRATIVE CONVERSATION" },
-  vision: { label: "PATTERNS INTO POSSIBILITIES", note: "COMPUTER VISION · APPLIED AI" },
-};
