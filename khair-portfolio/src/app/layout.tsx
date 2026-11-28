@@ -15,9 +15,9 @@ export const metadata: Metadata = {
 };
 export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: [{ media: "(prefers-color-scheme: dark)", color: "#08090e" }, { media: "(prefers-color-scheme: light)", color: "#f7f7fb" }] };
 
-const themeScript = `try{document.documentElement.dataset.theme=localStorage.getItem('kb-theme')==='light'?'light':'dark'}catch(e){document.documentElement.dataset.theme='dark'}`;
+const themeScript = `try{document.documentElement.dataset.theme=localStorage.getItem('kb-theme')==='dark'?'dark':'light'}catch(e){document.documentElement.dataset.theme='light'}`
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const person = { "@context": "https://schema.org", "@type": "Person", name: portfolio.fullName, jobTitle: portfolio.title, url: portfolio.siteUrl, email: portfolio.email, sameAs: [portfolio.github, portfolio.linkedin], address: { "@type": "PostalAddress", addressLocality: "Karachi", addressCountry: "PK" }, alumniOf: { "@type": "CollegeOrUniversity", name: "SZABIST University" } };
-  return <html lang="en" data-theme="dark" suppressHydrationWarning><head><script dangerouslySetInnerHTML={{ __html: themeScript }} /><link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossOrigin="anonymous" /><link rel="preload" href="/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossOrigin="anonymous" /></head><body>{children}<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(person).replace(/</g, "\\u003c") }} /></body></html>;
+  return <html lang="en" data-theme="light" suppressHydrationWarning><head><script dangerouslySetInnerHTML={{ __html: themeScript }} /><link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossOrigin="anonymous" /><link rel="preload" href="/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossOrigin="anonymous" /></head><body>{children}<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(person).replace(/</g, "\\u003c") }} /></body></html>;
 }
