@@ -211,21 +211,21 @@ body::before{display:none}
 
 /* Refined editorial presentation */
 :root{
-  --bg:#e1dced;
-  --surface:#eeeaf5;
-  --surface-2:#d9d3e7;
-  --text:#211d32;
-  --muted:#625d73;
-  --subtle:#807a91;
-  --line:#d7d2e3;
-  --violet:#6243c8;
-  --violet-solid:#6744d5;
-  --cyan:#087f82;
-  --gold:#6243c8;
-  --gold-bright:#6744d5;
-  --gold-wash:rgba(98,67,200,.09);
-  --nav:rgba(225,220,237,.94);
-  --shadow:0 20px 55px rgba(48,38,78,.12);
+  --bg:#d8c8b7;
+  --surface:#e9dfd4;
+  --surface-2:#d2c0ae;
+  --text:#30251d;
+  --muted:#65564a;
+  --subtle:#827160;
+  --line:#c7b5a2;
+  --violet:#80542f;
+  --violet-solid:#80542f;
+  --cyan:#356d68;
+  --gold:#80542f;
+  --gold-bright:#95633a;
+  --gold-wash:rgba(128,84,47,.1);
+  --nav:rgba(216,200,183,.97);
+  --shadow:0 20px 55px rgba(67,45,28,.15);
 }
 :root[data-theme=dark]{
   --bg:#0b1020;
@@ -247,8 +247,8 @@ body::before{display:none}
 
 body{
   background-image:
-    radial-gradient(circle at 82% 8%,rgba(111,77,215,.12),transparent 22rem),
-    linear-gradient(180deg,rgba(111,77,215,.045),transparent 28rem);
+    radial-gradient(circle at 82% 8%,rgba(153,105,60,.13),transparent 22rem),
+    linear-gradient(180deg,rgba(153,105,60,.045),transparent 28rem);
 }
 .header{border-bottom-color:color-mix(in srgb,var(--violet) 16%,var(--line))}
 .nav-shell{height:76px}
@@ -286,7 +286,7 @@ body{
 .chatbot-feature{border-radius:12px}
 .chatbot-feature:hover{background:var(--surface-2)}
 
-.work-section{background:linear-gradient(180deg,rgba(111,77,215,.055),transparent 50%)}
+.work-section{background:linear-gradient(180deg,rgba(153,105,60,.06),transparent 50%)}
 .filters button.active{background:var(--text);border-color:var(--text);color:var(--bg)}
 .filters button>span{background:color-mix(in srgb,var(--violet) 18%,transparent);color:var(--violet)}
 .project-grid{gap:20px}
@@ -305,7 +305,7 @@ body{
 .repo-card:hover{background:var(--surface)}
 .repo-demo,.repo-archive-demo{color:var(--violet)}
 
-.contact-section{background:linear-gradient(135deg,rgba(111,77,215,.07),transparent 50%)}
+.contact-section{background:linear-gradient(135deg,rgba(153,105,60,.075),transparent 50%)}
 .contact-form-wrap{box-shadow:var(--shadow)}
 .contact-form-wrap input,.contact-form-wrap textarea{border-radius:8px;background:var(--surface)}
 .contact-form-wrap .button-primary{border-radius:999px;background:var(--text);border-color:var(--text);color:var(--bg)}
@@ -331,4 +331,13 @@ body{
   .project-body{min-height:0}
   .project-card{border-radius:11px}
   .skill-card,.degree-card,.repo-card,.contact-form-wrap{border-radius:11px}
+}
+
+:root[data-theme=light] .hero h1>span{
+  background-image:none;
+  background-color:transparent;
+  background-clip:border-box;
+  -webkit-background-clip:border-box;
+  color:var(--violet);
+  -webkit-text-fill-color:var(--violet);
 }
