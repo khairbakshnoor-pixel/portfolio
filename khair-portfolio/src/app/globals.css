@@ -211,9 +211,9 @@ body::before{display:none}
 
 /* Refined editorial presentation */
 :root{
-  --bg:#eeecf4;
-  --surface:#f7f5fb;
-  --surface-2:#e7e4f0;
+  --bg:#e1dced;
+  --surface:#eeeaf5;
+  --surface-2:#d9d3e7;
   --text:#211d32;
   --muted:#625d73;
   --subtle:#807a91;
@@ -224,8 +224,8 @@ body::before{display:none}
   --gold:#6243c8;
   --gold-bright:#6744d5;
   --gold-wash:rgba(98,67,200,.09);
-  --nav:rgba(238,236,244,.92);
-  --shadow:0 20px 55px rgba(48,38,78,.1);
+  --nav:rgba(225,220,237,.94);
+  --shadow:0 20px 55px rgba(48,38,78,.12);
 }
 :root[data-theme=dark]{
   --bg:#0b1020;
@@ -248,9 +248,9 @@ body::before{display:none}
 body{
   background-image:
     radial-gradient(circle at 82% 8%,rgba(111,77,215,.12),transparent 22rem),
-    linear-gradient(180deg,rgba(255,255,255,.32),transparent 28rem);
+    linear-gradient(180deg,rgba(111,77,215,.045),transparent 28rem);
 }
-.header{border-bottom-color:rgba(117,112,95,.14)}
+.header{border-bottom-color:color-mix(in srgb,var(--violet) 16%,var(--line))}
 .nav-shell{height:76px}
 .nav-links>a{font-size:12px;font-weight:500}
 .nav-contact{border-radius:999px}
@@ -261,7 +261,7 @@ body{
 .availability{border-radius:999px;background:color-mix(in srgb,var(--surface) 88%,transparent);text-transform:none}
 .hero-intro{margin-top:29px;font-size:16px}
 .hero h1{font-size:clamp(48px,6vw,78px);line-height:.98;letter-spacing:-4.8px;white-space:normal;max-width:760px}
-.hero h1>span{background:none;color:var(--violet);-webkit-text-fill-color:var(--violet)}
+.hero h1>span{background-image:none;background-color:transparent;background-clip:border-box;color:var(--violet);-webkit-text-fill-color:var(--violet)}
 .role-line{margin-top:26px;font-size:14px}
 .hero-description{max-width:520px;font-size:15px;line-height:1.75}
 .hero-actions .button{min-height:52px;border-radius:999px}
@@ -286,7 +286,7 @@ body{
 .chatbot-feature{border-radius:12px}
 .chatbot-feature:hover{background:var(--surface-2)}
 
-.work-section{background:linear-gradient(180deg,rgba(184,138,67,.055),transparent 50%)}
+.work-section{background:linear-gradient(180deg,rgba(111,77,215,.055),transparent 50%)}
 .filters button.active{background:var(--text);border-color:var(--text);color:var(--bg)}
 .filters button>span{background:color-mix(in srgb,var(--violet) 18%,transparent);color:var(--violet)}
 .project-grid{gap:20px}
@@ -305,7 +305,7 @@ body{
 .repo-card:hover{background:var(--surface)}
 .repo-demo,.repo-archive-demo{color:var(--violet)}
 
-.contact-section{background:linear-gradient(135deg,rgba(184,138,67,.07),transparent 50%)}
+.contact-section{background:linear-gradient(135deg,rgba(111,77,215,.07),transparent 50%)}
 .contact-form-wrap{box-shadow:var(--shadow)}
 .contact-form-wrap input,.contact-form-wrap textarea{border-radius:8px;background:var(--surface)}
 .contact-form-wrap .button-primary{border-radius:999px;background:var(--text);border-color:var(--text);color:var(--bg)}
