@@ -211,21 +211,21 @@ body::before{display:none}
 
 /* Refined editorial presentation */
 :root{
-  --bg:#f4f7fc;
-  --surface:#ffffff;
-  --surface-2:#edf2fa;
-  --text:#172238;
-  --muted:#59677d;
-  --subtle:#78869b;
-  --line:#dce4f0;
+  --bg:#eeecf4;
+  --surface:#f7f5fb;
+  --surface-2:#e7e4f0;
+  --text:#211d32;
+  --muted:#625d73;
+  --subtle:#807a91;
+  --line:#d7d2e3;
   --violet:#6243c8;
   --violet-solid:#6744d5;
   --cyan:#087f82;
   --gold:#6243c8;
   --gold-bright:#6744d5;
   --gold-wash:rgba(98,67,200,.09);
-  --nav:rgba(244,247,252,.9);
-  --shadow:0 20px 55px rgba(31,55,100,.1);
+  --nav:rgba(238,236,244,.92);
+  --shadow:0 20px 55px rgba(48,38,78,.1);
 }
 :root[data-theme=dark]{
   --bg:#0b1020;
