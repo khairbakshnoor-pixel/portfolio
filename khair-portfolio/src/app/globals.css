@@ -211,21 +211,21 @@ body::before{display:none}
 
 /* Refined editorial presentation */
 :root[data-theme=light]{
-  --bg:#c6d4e5;
-  --surface:#d6e2f0;
-  --surface-2:#b9cbe0;
-  --text:#202b3c;
-  --muted:#4e5e73;
-  --subtle:#6c7d91;
-  --line:#a6bad1;
-  --violet:#6243c8;
-  --violet-solid:#6744d5;
-  --cyan:#087f82;
-  --gold:#6243c8;
-  --gold-bright:#6744d5;
-  --gold-wash:rgba(98,67,200,.1);
-  --nav:rgba(198,212,229,.97);
-  --shadow:0 20px 55px rgba(41,63,94,.16);
+  --bg:#F3F6FB;
+  --surface:#FFFFFF;
+  --surface-2:#E8EDFF;
+  --text:#16243B;
+  --muted:#5A6B82;
+  --subtle:#718199;
+  --line:#D9E2EF;
+  --violet:#365FE8;
+  --violet-solid:#365FE8;
+  --cyan:#087F91;
+  --gold:#365FE8;
+  --gold-bright:#365FE8;
+  --gold-wash:rgba(54,95,232,.09);
+  --nav:rgba(243,246,251,.97);
+  --shadow:0 20px 55px rgba(22,36,59,.08);
 }
 :root[data-theme=dark]{
   --bg:#0b1020;
@@ -340,4 +340,54 @@ body{
   -webkit-background-clip:border-box;
   color:var(--violet);
   -webkit-text-fill-color:var(--violet);
+}
+
+:root[data-theme=light] .hero-focus{
+  padding:16px 18px;
+  border:1px solid #D9E2EF;
+  border-radius:14px;
+  background:#FFFFFF;
+  box-shadow:0 8px 24px rgba(22,36,59,.07);
+}
+:root[data-theme=light] .hero-focus-heading{
+  margin:0 0 8px;
+  color:#16243B;
+  font-size:13px;
+  font-weight:650;
+  letter-spacing:.8px;
+}
+:root[data-theme=light] .hero-focus-list{gap:4px}
+:root[data-theme=light] .hero-focus-item{
+  grid-template-columns:32px minmax(0,1fr);
+  align-items:center;
+  gap:12px;
+  min-height:38px;
+  padding:4px 0;
+  border:0;
+  color:#16243B;
+  font-family:var(--sans);
+  font-size:15px;
+  line-height:1.45;
+}
+:root[data-theme=light] .hero-focus-number{
+  display:grid;
+  width:30px;
+  height:24px;
+  place-items:center;
+  border-radius:7px;
+  background:#E8EDFF;
+  color:#365FE8;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.2px;
+}
+:root[data-theme=light] .hero-focus-location{
+  margin-top:10px;
+  color:#5A6B82;
+}
+:root[data-theme=light] .hero-focus-location svg{color:#365FE8}
+
+@media(max-width:700px){
+  :root[data-theme=light] .hero-focus{padding:15px 16px}
+  :root[data-theme=light] .hero-focus-item{font-size:14px}
 }
