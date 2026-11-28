@@ -75,7 +75,6 @@ function Stat({ value, suffix, label }: { value: number; suffix: string; label: 
 
 function Hero() {
   return <section className="hero section-shell" id="home" aria-labelledby="hero-title">
-    <div className="hero-ambient" aria-hidden="true"><div className="orbit orbit-one" /><div className="orbit orbit-two" /></div>
     <div className="hero-copy">
       <div className="availability"><span className="status-dot" />{p.availability}</div>
       <p className="hero-intro">{p.hero.introduction} <span>{p.name}</span></p>
@@ -162,7 +161,7 @@ function Projects() {
   const [selected, setSelected] = useState<Project | null>(null);
   const visible = projects.filter(project => filter === "All" ? expanded || project.featured : project.category.some(category => category === filter));
   return <section id="work" className="section work-section"><div className="section-shell"><SectionHeading {...p.work} /><div className="work-toolbar"><div className="filters" role="group" aria-label={p.ui.filter}>{p.work.filters.map(item => <button type="button" key={item} className={filter === item ? "active" : ""} aria-pressed={filter === item} onClick={() => setFilter(item)}>{item}{item === "All" && <span>{projects.length}</span>}</button>)}</div><span className="project-count" role="status">{visible.length} {p.ui.projectCount}</span></div>
-    <div className="project-grid">{visible.map(project => <Reveal key={project.id}><article className="project-card"><button className="project-open" type="button" onClick={() => setSelected(project)} aria-label={`${p.work.caseLabel}: ${project.subtitle}`}><div className="project-body"><div className="project-kicker"><span>{project.type}</span><span className="project-number">{String(projects.indexOf(project) + 1).padStart(2, "0")}</span><Icon name="upRight" size={20} /></div><h3>{project.title}</h3><p>{project.description}</p><div className="project-meta"><div className="project-stack">{project.stack.slice(0, 3).map(item => <span key={item}>{item}</span>)}</div>{project.metric && <div className="project-metric"><strong>{project.metric.value}</strong><span>{project.metric.label}</span></div>}</div><span className="project-read">{p.work.caseLabel}<Icon name="arrow" size={16} /></span></div></button></article></Reveal>)}</div>
+    <div className="project-grid">{visible.map(project => <Reveal key={project.id}><article className="project-card"><button className="project-open" type="button" onClick={() => setSelected(project)} aria-label={`${p.work.caseLabel}: ${project.subtitle}`}><div className="project-body"><div className="project-kicker"><span className="project-category">{project.category[0]}</span><span className="project-number">{String(projects.indexOf(project) + 1).padStart(2, "0")}</span><Icon name="upRight" size={20} /></div><h3>{project.title}</h3><p>{project.description}</p><div className="project-meta"><div className="project-stack">{project.stack.slice(0, 3).map(item => <span key={item}>{item}</span>)}</div>{project.metric && <div className="project-metric"><strong>{project.metric.value}</strong><span>{project.metric.label}</span></div>}</div><span className="project-read">{p.work.caseLabel}<Icon name="arrow" size={16} /></span></div></button>{project.demo && <a className="project-live-link" href={project.demo} target="_blank" rel="noopener noreferrer">Open live project<Icon name="upRight" size={14} /></a>}</article></Reveal>)}</div>
     {filter === "All" && <div className="show-more"><button className="button button-secondary" type="button" onClick={() => { if (expanded) document.getElementById("work")?.scrollIntoView({ behavior: "instant" }); setExpanded(!expanded); }}>{expanded ? p.work.fewerLabel : `${p.work.allLabel} (${projects.length})`}<Icon name="chevron" style={{ transform: expanded ? "rotate(180deg)" : undefined }} size={17} /></button></div>}
     <div className="lab-row"><span className="tiny-label lab-title"><Icon name="code" size={17} />{p.lab.eyebrow}</span><div>{p.lab.items.map(item => <article key={item.title}><h3>{item.title}</h3><p>{item.description}</p><span className="tiny-label">{item.stack}</span></article>)}</div></div>
     <CaseStudy project={selected} onClose={() => setSelected(null)} />
@@ -229,19 +228,6 @@ function Footer() {
   return <footer className="footer section-shell"><div className="footer-top"><a href="#home" className="brand">{p.initials}<span>.</span></a><p>{p.footer.note}</p><a className="text-link" href={p.cv.available ? p.cv.href : `mailto:${p.email}?subject=${encodeURIComponent(p.cv.subject)}`} download={p.cv.available || undefined}><Icon name={p.cv.available ? "download" : "mail"} size={16} />{p.cv.available ? p.cv.label : p.cv.unavailableLabel}</a></div><div className="footer-bottom"><span>© {p.footer.copyright} {p.fullName}</span><a href="#home">{p.footer.back}<Icon name="arrow" size={15} /></a></div></footer>;
 }
 
-function CursorGlow() {
-  const ref = useRef<HTMLDivElement>(null);
-  const reduced = useReducedMotion();
-  useEffect(() => {
-    if (reduced || !window.matchMedia("(pointer: fine)").matches) return;
-    let frame = 0;
-    const move = (e: PointerEvent) => { cancelAnimationFrame(frame); frame = requestAnimationFrame(() => { if (ref.current) ref.current.style.transform = `translate(${e.clientX - 250}px, ${e.clientY - 250}px)`; }); };
-    window.addEventListener("pointermove", move, { passive: true });
-    return () => { window.removeEventListener("pointermove", move); cancelAnimationFrame(frame); };
-  }, [reduced]);
-  return <div ref={ref} className="cursor-glow" aria-hidden="true" />;
-}
-
 export default function Portfolio() {
-  return <MotionConfig reducedMotion="user"><a className="skip-link" href="#main">{p.ui.skip}</a><Header /><main id="main"><Hero /><ChatbotShowcase /><div className="section-rule section-shell"><span /><Icon name="spark" size={19} /><span /></div><About /><Experience /><Projects /><Skills /><Education /><Github /><Contact /></main><Footer /><CursorGlow /></MotionConfig>;
+  return <MotionConfig reducedMotion="user"><a className="skip-link" href="#main">{p.ui.skip}</a><Header /><main id="main"><Hero /><ChatbotShowcase /><div className="section-rule section-shell"><span /><Icon name="spark" size={19} /><span /></div><About /><Experience /><Projects /><Skills /><Education /><Github /><Contact /></main><Footer /></MotionConfig>;
 }

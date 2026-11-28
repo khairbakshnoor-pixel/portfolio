@@ -1,114 +1,119 @@
-# Khair Bakhsh — AI Automation Portfolio
+<div align="center">
+  <img src="public/og-image.png" alt="Khair Bakhsh Noor Dad — AI automation, voice agents and data" width="100%" />
+  <h1>Khair Bakhsh · Portfolio</h1>
+  <p><strong>AI automation · Voice agents · Chatbots · Data & machine learning</strong></p>
+  <p>Portrait-free, content-led portfolio built with Next.js and TypeScript.</p>
+  <p><a href="https://github.com/khairbakshnoor-pixel">GitHub</a> · <a href="https://linkedin.com/in/khair-bakhsh-54714b339">LinkedIn</a> · <a href="mailto:khairbakshnoor@gmail.com">Email</a></p>
+</div>
 
-A complete Next.js App Router portfolio built from the supplied October 2026 brief. TypeScript, Tailwind CSS 4, Framer Motion, self-hosted fonts, and native accessible dialogs. The original `../portfolio` starter is preserved.
+---
+
+## What I do
+
+I build voice and chat assistants, connect business tools with automation, and use data to make workflows easier to understand. I care about clear handoffs, grounded answers, and tools that are useful to the people using them.
+
+## Selected work
+
+| Project | What I built |
+| --- | --- |
+| **Wellness lead response agent** | Retell AI voice workflow connected to web forms, n8n, CRM, booking functions, and team handoffs. Tested with mock calls. |
+| **Client onboarding assistant** | Chat and voice experience that gathers 13 business fields and routes them into CRM and team tools. |
+| **Customer churn dashboard** | Streamlit app comparing six models across 7,043 Telco records. The project brief reports 80.6% accuracy and 0.84 ROC-AUC for Gradient Boosting. |
+| **Roman Urdu catering assistant** | Chat and voice assistant that uses booking details already provided and asks only for missing information. |
+| **Engineering project assistant** | Website chatbot that helps visitors explore engineering services and start a project conversation. |
+| **Crypto analytics dashboard** | CoinGecko-to-SQLite snapshot pipeline with a Streamlit dashboard and update-failure handling. |
+
+## Experience
+
+- **AI Automation Engineer — AI Call** · Jul 2026–Present
+- **Data Analyst — Hot-N-Spicy** · Mar 2026–Jun 2026
+- **AI/ML Intern — Alkhidmat Foundation** · Nov 2025–Feb 2026
+
+## Toolkit
+
+- **Automation:** n8n, Retell AI, GoHighLevel, HubSpot, webhooks, REST APIs
+- **AI:** RAG, Supabase pgvector, Ollama, Claude API, prompt and conversation design
+- **Data & ML:** Python, Pandas, NumPy, scikit-learn, TensorFlow, Streamlit, Plotly
+- **Development:** JavaScript, SQL, Java, C/C++, Git, GitHub
+
+## Education
+
+**BS Computer Science** — SZABIST University, Karachi · CGPA 3.66
+
+---
 
 ## Run locally
 
-Install Node.js 22 or newer and pnpm 10.28.2, then run from this directory:
+Requirements: Node.js 22 or newer and pnpm 10.28.2.
 
-```sh
-corepack enable
-pnpm install --frozen-lockfile
-pnpm dev
-```
+    corepack enable
+    pnpm install --frozen-lockfile
+    pnpm dev
 
-Open the localhost URL printed by Next.js.
+Open the localhost address printed by Next.js.
 
-```sh
-pnpm lint
-pnpm typecheck
-pnpm build
-pnpm start
-```
+Useful project commands:
 
-No API keys are needed. The contact form creates an encoded `mailto:` draft in the visitor's email client; it does not send or store messages. Copy-email and direct social links provide alternatives.
+    pnpm lint
+    pnpm typecheck
+    pnpm build
+    pnpm start
 
-## Edit your content
+No API keys are needed. The contact form opens a prefilled email draft in the visitor’s email application; it does not send or store messages.
 
-All portfolio content is in `src/data/portfolio.ts`: identity, navigation, hero, jobs, projects, skills, education, GitHub highlights, contact text, and links.
+## Portfolio content
 
-- Eight of 17 case studies appear initially. “Explore all projects” shows every case study.
-- Category filters include all relevant projects, including ones outside the initial selection.
-- Chatbots have their own filter, four detailed case studies, and a prominent live-demo showcase for the new text/voice assistant and engineering project assistant.
-- Each case study has challenge, implementation, outcome, technologies, and verified links where available.
-- Missing links are intentionally absent. See the `TODO` comments in the data file.
-- GitHub highlights are a reviewed static snapshot, so the site remains functional if GitHub is unavailable.
-- Client names and client-identifying demo links are withheld. Add only approved links.
+Edit src/data/portfolio.ts to update the identity, navigation, work history, case studies, skills, education, repository links, contact copy, and social links.
 
-### Portrait-free design
+- Eight of 17 case studies appear first. “Explore all projects” reveals the full collection.
+- Category filters include every relevant project, including projects outside the initial selection.
+- Chatbot case studies have their own section and category filter.
+- Case studies describe the challenge, what was built, the outcome, and the technology used.
+- Live project links appear on cards when a verified demo URL is available.
+- GitHub highlights are a reviewed snapshot so the portfolio works when GitHub is unavailable.
+- Client names and identifying links stay private unless explicitly approved.
 
-The portfolio does not display a profile photo. The hero and About sections use a short list of focus areas, location, and project details instead; no portrait asset is required.
+## Visual direction
 
-### Add your CV
+The site uses a text-first hero and project cards instead of profile photography or generated project illustrations. Direct project names, concise descriptions, technology labels, and case-study details keep the focus on the work.
 
-`public/cv.pdf` is clearly labeled as a placeholder. Replace it with your approved CV and set `portfolio.cv.available` to `true` in the data file. This activates the footer download link to `/cv.pdf`. Until then, the footer offers “Request my CV” by email.
+Edit src/app/globals.css for layout, colors, typography, spacing, and responsive behavior. The design includes dark and light themes, keyboard focus styles, a responsive navigation menu, and reduced-motion support.
 
-### Design tokens
+Self-hosted Inter and Space Grotesk font files and their OFL licenses are in public/fonts.
 
-Edit `src/app/globals.css`. Primary tokens live in `:root` and `:root[data-theme=light]`:
+## CV
 
-- Near-black `#08090e`, violet `#b49aff`, cyan `#78dedc`.
-- Space Grotesk headings, Inter body, both self-hosted with included OFL licenses.
-- Dark default, stored light/dark preference, responsive layouts and visible keyboard focus.
-- Reduced-motion preferences disable decorative animation and role cycling.
+public/cv.pdf is a placeholder. Replace it with an approved CV and set cv.available to true in src/data/portfolio.ts to enable the download link. Until then, the footer offers a CV request by email.
 
 ## Deploy to Vercel
 
-1. Push this **project directory** to a GitHub repository you control.
-2. Import that repository in Vercel. If importing a parent repository, select `khair-portfolio` as the root directory.
-3. Keep the auto-detected **Next.js** preset. Use `pnpm install --frozen-lockfile` and `pnpm build`.
-4. Set `NEXT_PUBLIC_SITE_URL` to your final HTTPS origin, with no trailing slash. Leave `STATIC_EXPORT` unset.
-5. Deploy. Future Git pushes trigger deployments.
+1. Push this project directory to a GitHub repository.
+2. Import it in Vercel and keep the detected Next.js preset.
+3. Set NEXT_PUBLIC_SITE_URL to the final HTTPS origin, without a trailing slash.
+4. Deploy. No environment secrets are required.
 
-No Vercel account or GitHub repository mutation was needed to prepare this source. A literal “Deploy with Vercel” button should be added once the final public source repository URL exists; no invented template URL is embedded.
+Static export is also supported:
 
-## Static hosting / Sites
+    $env:STATIC_EXPORT = "1"
+    pnpm build
+    python -m http.server 3000 --bind 127.0.0.1 --directory out
 
-The same source supports static export:
+For macOS or Linux, run the build with STATIC_EXPORT=1 in the environment. The generated site is written to out/.
 
-```powershell
-$env:STATIC_EXPORT = "1"
-pnpm build
-python -m http.server 3000 --bind 127.0.0.1 --directory out
-```
+## Project structure
 
-On macOS/Linux: `STATIC_EXPORT=1 pnpm build`.
+    src/app/                 Page, metadata, styling, robots, sitemap, 404
+    src/components/          Portfolio interface and SVG icons
+    src/data/portfolio.ts    Editable portfolio content and repository catalog
+    public/fonts/            Self-hosted font files and licenses
+    public/og-image.png      Social sharing artwork; contains no portrait
+    public/cv.pdf            Placeholder until an approved CV is supplied
 
-The generated directory is `out/`. `.openai/hosting.json` holds this Site's identity and static output configuration. It contains no credentials. Never replace its project ID with another Site's identity.
+## Before publishing
 
-## File structure
-
-```text
-src/
-  app/                 # Page, layout, styling, robots, sitemap, 404
-  components/          # Interactive portfolio and SVG icon components
-  data/portfolio.ts    # Typed editable content and repository inventory
-public/
-  fonts/               # Self-hosted fonts and OFL licenses
-  cv.pdf               # Explicit placeholder until an approved CV is supplied
-  og-image.png         # Social sharing artwork
-  icon.svg             # KB favicon
-  apple-touch-icon.png
-```
-
-## Research and editorial decisions
-
-GitHub lists **33 public repositories** as of 26 October 2026. All 33 currently public repositories are included in the searchable “More on GitHub” catalog. Repositories that are private are not linked.
-
-Six repository highlights: Customer Churn Dashboard, Client Onboarding Website, the Engineering Project Chatbot, Attendance Machine, Real-Time Crypto Analytics Platform, and AI Insurance Claim Co-Pilot. Search or filter the full repository catalog by name, description, or language. Live chatbot demonstrations are kept separate from their public source links; the YTH assistant currently has no publicly accessible GitHub repository. The churn, crypto analytics, and SMIT hackathon demos are linked from their matching project cards.
-
-The verified churn repository is `Customer-churn-dashboard-`, including the trailing hyphen. The PDF's lower-case URL without that trailing hyphen was replaced.
-
-The PDF's current email, LinkedIn URL, job titles, dates, and education take precedence over the older starter and GitHub profile biography. Client companies remain anonymous. Reported metrics retain their qualifications: estimated reporting savings, reported model evaluations, and a conversion **target** rather than an achieved result. The insurance and face-attendance examples are labeled demonstrations. Ambiguous loan-default correlation wording is omitted.
-
-## Owner TODOs
-
-- Replace the CV placeholder and enable the download flag.
-- Confirm any client links before making them public.
-- Recheck the customer-churn Streamlit app and restore its demo link when it is publicly available.
-- Update the current semester, availability, and role dates as they change.
-- Set the final domain for canonical, sitemap, and social URLs.
-- Add optional dedicated heart-disease and real-estate repository URLs once verified.
-- If desired, replace mailto with a real form service or server endpoint; keep credentials server-side.
-
-Run `pnpm lint`, `pnpm typecheck`, and `pnpm build` before deployment. Lighthouse scores must be measured; a 90+ score is a target, not an unverified claim.
+- Replace the CV placeholder and enable the download link.
+- Confirm any client-facing links before adding them.
+- Recheck the customer churn demo before restoring its link.
+- Update current role, semester, and availability details as they change.
+- Set the production domain in NEXT_PUBLIC_SITE_URL.
+- Connect a real form service only if desired; keep credentials server-side.
