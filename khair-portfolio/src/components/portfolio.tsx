@@ -74,6 +74,7 @@ function Stat({ value, suffix, label }: { value: number; suffix: string; label: 
 }
 
 function Hero() {
+  const workflowIcons = ["mail", "spark", "arrow"] as const;
   return <section className="hero section-shell" id="home" aria-labelledby="hero-title">
     <div className="hero-copy">
       <div className="availability"><span className="status-dot" />{p.availability}</div>
@@ -84,12 +85,15 @@ function Hero() {
       <div className="hero-actions"><MagneticLink href="#work">{p.hero.primary}<Icon name="arrow" /></MagneticLink><MagneticLink href="#contact" secondary>{p.hero.secondary}<Icon name="upRight" size={18} /></MagneticLink></div>
       <div className="hero-socials"><span>{p.hero.eyebrow}</span><a href={p.github} aria-label={p.contact.socialLabels.github} target="_blank" rel="noopener noreferrer"><Icon name="github" size={18} /></a><a href={p.linkedin} aria-label={p.contact.socialLabels.linkedin} target="_blank" rel="noopener noreferrer"><Icon name="linkedin" size={18} /></a></div>
     </div>
-    <div className="hero-focus">
-      <p className="tiny-label hero-focus-heading">{p.hero.focusLabel}</p>
-      <div className="hero-focus-list">
-        {p.hero.specialties.map((specialty, index) => <div className="hero-focus-item" key={specialty}><span className="hero-focus-number">0{index + 1}</span><span>{specialty}</span></div>)}
-      </div>
-      <p className="hero-focus-location"><Icon name="pin" size={15} />{p.location}</p>
+    <div className="hero-workflow" role="group" aria-label={p.hero.workflowLabel}>
+      <p className="tiny-label hero-workflow-heading">{p.hero.workflowLabel}</p>
+      <ol className="hero-workflow-steps">
+        {p.hero.workflowSteps.map((step, index) => <li className="hero-workflow-step" key={step}>
+          <span className="hero-workflow-node" aria-hidden="true"><Icon name={workflowIcons[index]} size={17} /></span>
+          <span className="hero-workflow-index">0{index + 1}</span>
+          <strong>{step}</strong>
+        </li>)}
+      </ol>
     </div>
     <div className="hero-bottom"><div className="stats">{p.stats.map(stat => <Stat key={stat.label} {...stat} />)}</div><a href="#about" className="scroll-cue"><span>{p.hero.scroll}</span><Icon name="arrow" size={18} /></a></div>
   </section>;
