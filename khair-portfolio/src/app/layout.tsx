@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
   icons: { icon: "/icon.svg", apple: "/apple-touch-icon.png" },
 };
-export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: [{ media: "(prefers-color-scheme: dark)", color: "#08090e" }, { media: "(prefers-color-scheme: light)", color: "#f7f7fb" }] };
+export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: [{ media: "(prefers-color-scheme: dark)", color: "#0b1020" }, { media: "(prefers-color-scheme: light)", color: "#f4f7fc" }] };
 
 const themeScript = `try{document.documentElement.dataset.theme=localStorage.getItem('kb-theme')==='dark'?'dark':'light'}catch(e){document.documentElement.dataset.theme='light'}`
 
